@@ -1,4 +1,4 @@
-LL mult(LL a, LL b, LL m) { /* 64bit multiply 64bit. */
+LL mult64(LL a, LL b, LL m) { // 64bit multiply 64bit
 	a %= m, b %= m;
 	LL ret = 0;
 	for (; b; b >>= 1) {
@@ -8,16 +8,16 @@ LL mult(LL a, LL b, LL m) { /* 64bit multiply 64bit. */
 	return ret;
 }
 
-LL fpow(LL a, LL p, LL mod) { /* Fast power-modulo algorithm. */
+LL fpow(LL a, LL p, int mod) { // fast power-modulo algorithm
 	LL res = 1;
 	for (; p; p >>= 1) {
-		if (p & 1) res = (res * a) % mod; // using mult when mod is 64-bit
+		if (p & 1) res = (res * a) % mod; // using mult64 when mod is 64-bit
 		a = (a * a) % mod;
 	}
 	return res;
 }
 
-int exgcd(int x, int y, int &a, int &b) { /* Extended GCD, ax + by = GCD. */
+int exgcd(int x, int y, int &a, int &b) { // extended gcd, ax + by = g.
 	if (y == 0) {
 		a = 1, b = 0;
 		return x;
@@ -28,21 +28,21 @@ int exgcd(int x, int y, int &a, int &b) { /* Extended GCD, ax + by = GCD. */
 	}
 }
 
-int inverse(int x, int mod) { /* Multiplicative inverse. */
+int inverse(int x, int mod) { // multiplicative inverse.
 	int a = 0, b = 0;
 	if (exgcd(x, mod, a, b) != 1) return -1;
-	return (a % mod + mod) % mod; // x and mod should be co-prime
-	return fpow(x, mod - 2, mod); // or mod should be a prime
+	return (a % mod + mod) % mod; // C1: x & mod are co-prime
+	return fpow(x, mod - 2, mod); // C2: mod is prime
 }
 
-void init_inverse(int mod) { /* O(n) all multiplicative inverse, mod is prime. */
-	inv[1] = 1; // inv[0] ?
+void init_inverse(int mod) { // O(n), all multiplicative inverse, mod is prime
+	inv[0] = inv[1] = 1;
 	for (int i = 2; i < n; ++i) {
-		inv[i] = (LL)inv[mod % i] * (mod - mod / i) % mod; // overflows
+		inv[i] = (LL)inv[mod % i] * (mod - mod / i) % mod; // overflows?
 	}
 }
 
-LL CRT(int cnt, int *p, int *b) { /* Chinese remainder theorem. */
+LL CRT(int cnt, int *p, int *b) { // chinese remainder theorem
 	LL N = 1, ans = 0;
 	for (int i = 0; i < k; ++i) N *= p[i];
 	for (int i = 0; i < k; ++i) {
@@ -54,7 +54,7 @@ LL CRT(int cnt, int *p, int *b) { /* Chinese remainder theorem. */
 	return ans;
 }
 
-void sieve(int n) { /* Generating primes using Euler's sieve. */
+void sieve(int n) { // generating primes using euler's sieve
 	notP[1] = 1;
 	for (int i = 2; i <= n; ++i) {
 		if (!notP[i]) P[++Pt] = i;
@@ -65,7 +65,7 @@ void sieve(int n) { /* Generating primes using Euler's sieve. */
 	}
 }
 
-bool prime_test(LL n, LL b) { /* Miller Rabin Prime test. */
+bool miller_rabin(LL n, LL b) { // miller-rabin prime test
 	LL m = n - 1, cnt = 0;
 	while (m % 2 == 0) m >>= 1, ++cnt;
 	LL ret = fpow(b, m, n);
@@ -85,12 +85,12 @@ bool prime_test(LL n) {
 	if (n == 3215031751LL) return false;
 	const int BASIC[12] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
 	for (int i = 0; i < 12 && BASIC[i] < n; ++ i) {
-		if (!prime_test(n, BASIC[i])) return false;
+		if (!miller_rabin(n, BASIC[i])) return false;
 	}
     return true;
 }
 
-LL pollard_rho(LL n, LL seed) { /* Pollard-rho */
+LL pollard_rho(LL n, LL seed) { // pollard-rho divisors factorization
 	LL x, y;
 	x = y = rand() % (n - 1) + 1;
 	LL head = 1, tail = 2;
@@ -115,7 +115,7 @@ void factorize(LL n, vector<LL> &divisor) {
 	}
 }
 
-/* Discrete-logarithm, finding y for equation k = x^y % mod. */
+// discrete-logarithm, finding y for equation k = x^y % mod
 int discrete_logarithm(int x, int mod, int k) {
 	if (mod == 1) return 0;
 	int s = 1, g;
@@ -145,7 +145,7 @@ int discrete_logarithm(int x, int mod, int k) {
 	return -1;
 }
 
-/* Primtive Root, finding a whose order is p-1. */ 
+// primtive root, finding the number with order p-1 
 int primtive_root(int p) {
 	vector<int> factor;
 	int tmp = p - 1;
