@@ -1,0 +1,376 @@
+﻿\newcommand{\md}{\mathrm{d}}
+\newcommand{\me}{\mathrm{e}}
+
+\paragraph{$\blacksquare$ 含有$ax+b$的积分($a \neq 0$)}
+
+\begin{enumerate}
+
+\item $ \int \frac{\md x}{ax+b} = \frac{1}{a} \ln |ax+b| + C $
+
+\item $ \int (ax+b)^{\mu} \md x = \frac{1}{a(\mu+1)}(ax+b)^{\mu+1} + C (\mu \neq 1) $
+
+\item $ \int \frac{x}{ax+b} \md x = \frac{1}{a^2} (ax+b-b\ln|ax+b|) + C $
+
+\item $ \int \frac{x^2}{ax+b} \md x = \frac{1}{a^3} \left( \frac{1}{2}(ax+b)^2-2b(ax+b)+b^2\ln|ax+b| \right) + C $
+
+\item $ \int \frac{\md x}{x(ax+b)} = -\frac{1}{b}\ln \left| \frac{ax+b}{x} \right| + C $
+
+\item $ \int \frac{\md x}{x^2(ax+b)} = -\frac{1}{bx} + \frac{a}{b^2}\ln\left| \frac{ax+b}{x} \right| + C $
+
+\item $ \int \frac{x}{(ax+b)^2} \md x = \frac{1}{a^2}\left( \ln|ax+b|+\frac{b}{ax+b} \right) + C $
+
+\item $ \int \frac{x^2}{(ax+b)^2}\md x = \frac{1}{a^3} \left( ax+b-2b\ln|ax+b|-\frac{b^2}{ax+b} \right) + C $
+
+\item $ \int \frac{\md x}{x(ax+b)^2} = \frac{1}{b(ax+b)} - \frac{1}{b^2}\ln\left| \frac{ax+b}{x} \right| + C $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$\sqrt{ax+b}$的积分}
+
+\begin{enumerate}
+
+\item $ \int \sqrt{ax+b} \mathrm{d}x = \frac{2}{3a} \sqrt{(ax+b)^3} + C $
+
+\item $ \int x \sqrt{ax+b} \mathrm{d}x = \frac{2}{15a^2}(3ax-2b) \sqrt{(ax+b)^3} + C $
+
+\item $ \int x^2 \sqrt{ax+b} \mathrm{d}x = \frac{2}{105a^3}(15a^2x^2-12abx+8b^2)\sqrt{(ax+b)^3} + C $
+
+\item $ \int \frac{x}{\sqrt{ax+b}} \mathrm{d}x = \frac{2}{3a^2} (ax-2b) \sqrt{ax+b} + C $
+
+\item $ \int \frac{x^2}{\sqrt{ax+b}} \mathrm{d} x = \frac{2}{15a^3} (3a^2x^2 - 4abx + 8b^2) \sqrt{ax+b} + C $
+
+\item $ \int \frac{\mathrm{d} x}{x\sqrt{ax+b}} = \begin{cases}
+\frac{1}{\sqrt{b}}\ln\left| \frac{\sqrt{ax+b} - \sqrt{b}}{\sqrt{ax+b} + \sqrt{b}} \right| + C & (b>0) \\
+\frac{2}{\sqrt{-b}}\arctan\sqrt{\frac{ax+b}{-b}} + C & (b<0)
+\end{cases} $
+
+\item $ \int \frac{\mathrm{d} x}{x^2\sqrt{ax+b}} = -\frac{\sqrt{ax+b}}{bx} - \frac{a}{2b} \int \frac{\mathrm{d} x}{x\sqrt{ax+b}} $
+
+\item $ \int \frac{\sqrt{ax+b}}{x}\mathrm{d} x = 2\sqrt{ax+b} + b\int\frac{\mathrm{d} x}{x\sqrt{ax+b}} $
+
+\item $ \int \frac{\sqrt{ax+b}}{x^2}\mathrm{d}x = -\frac{\sqrt{ax+b}}{x} + \frac{a}{2} \int \frac{\mathrm{d}x}{x\sqrt{ax+b}} $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$x^2 \pm a^2$的积分}
+
+\begin{enumerate}
+
+\item $ \int \frac{\mathrm{d}x}{x^2 + a^2} = \frac{1}{a} \arctan\frac{x}{a} + C$
+
+\item $ \int \frac{\mathrm{d}x}{(x^2+a^2)^n} = \frac{x}{2(n-1)a^2(x^2+a^2)^{n-1}}+\frac{2n-3}{2(n-1)a^2} \int \frac{\mathrm{d}x}{(x^2+a^2)^{n-1}} $
+
+\item $\int \frac{\mathrm{d}x}{x^2-a^2} = \frac{1}{2a}\ln\left| \frac{x-a}{x+a} \right| + C $
+
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$ax^2+b$($a>0$)的积分}
+
+\begin{enumerate}
+
+\item $ \int \frac{\mathrm{d}x}{ax^2+b} = \begin{cases}
+\frac{1}{\sqrt{ab}} \arctan \sqrt{\frac{a}{b}} x + C & (b > 0) \\
+\frac{1}{2\sqrt{-ab}} \ln\left| \frac{\sqrt{a}x-\sqrt{-b}}{\sqrt{a}x+\sqrt{-b}} \right| + C & (b < 0)
+\end{cases} $
+
+\item $ \int \frac{x}{ax^2+b} \mathrm{d}x = \frac{1}{2a} \ln \left| ax^2 + b \right| + C $
+
+\item $ \int \frac{x^2}{ax^2+b} \mathrm{d}x = \frac{x}{a} - \frac{b}{a}\int \frac{\mathrm{d}x}{ax^2+b} $
+
+\item $ \int \frac{\mathrm{d}x}{x(ax^2+b)} = \frac{1}{2b} \ln \frac{x^2}{|ax^2+b|} + C $
+
+\item $ \int \frac{\mathrm{d}x}{x^2(ax^2+b)} = -\frac{1}{bx} - \frac{a}{b} \int \frac{\mathrm{d}x}{ax^2+b} $
+
+\item $ \int \frac{\mathrm{d}x}{x^3(ax^2+b)} = \frac{a}{2b^2} \ln \frac{|ax^2+b|}{x^2} - \frac{1}{2bx^2} + C $
+
+\item $ \int \frac{\mathrm{d}x}{(ax^2+b)^2} = \frac{x}{2b(ax^2+b)} + \frac{1}{2b} \int \frac{\mathrm{d}x}{ax^2+b} $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$ax^2+bx+c$($a>0$)的积分}
+
+\begin{enumerate}
+
+\item $ \frac{\md x}{ax^2+bx+c} = \begin{cases}
+\frac{2}{\sqrt{4ac-b^2}}\arctan\frac{2ax+b}{\sqrt{4ac-b^2}} + C & (b^2 < 4ac) \\
+\frac{1}{\sqrt{b^2-4ac}}\ln\left| \frac{2ax+b-\sqrt{b^2-4ac}}{2ax+b+\sqrt{b^2-4ac}} \right| + C & (b^2 > 4ac)
+\end{cases} $
+
+\item $ \int \frac{x}{ax^2+bx+c} \md x = \frac{1}{2a} \ln |ax^2+bx+c| - \frac{b}{2a} \int \frac{\md x}{ax^2+bx+c} $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$\sqrt{x^2+a^2}$($a>0$)的积分}
+
+\begin{enumerate}
+
+\item $ \int \frac{\mathrm{d}x}{\sqrt{x^2+a^2}} = \mathrm{arsh} \frac{x}{a} + C_1 = \ln(x + \sqrt{x^2+a^2}) + C$
+
+\item $ \int \frac{\mathrm{d}x}{\sqrt{(x^2+a^2)^3}} = \frac{x}{a^2\sqrt{x^2+a^2}} + C $
+
+\item $ \int \frac{x}{\sqrt{x^2+a^2}} \mathrm{d}x = \sqrt{x^2+a^2} + C $
+
+\item $ \int \frac{x}{\sqrt{(x^2+a^2)^3}} \mathrm{d}x = -\frac{1}{\sqrt{x^2+a^2}} + C $
+
+\item $ \int \frac{x^2}{\sqrt{x^2+a^2}} \md x = \frac{x}{2}\sqrt{x^2+a^2} - \frac{a^2}{2}\ln(x+\sqrt{x^2+a^2}) + C $
+
+\item $ \int \frac{x^2}{\sqrt{(x^2+a^2)^3}} \md x = -\frac{x}{\sqrt{x^2+a^2}} + \ln(x+\sqrt{x^2+a^2}) + C $
+
+\item $ \int \frac{\md x}{x\sqrt{x^2+a^2}} = \frac{1}{a} \ln \frac{\sqrt{x^2+a^2}-a}{|x|} + C $
+
+\item $ \int \frac{\md x}{x^2\sqrt{x^2+a^2}} = -\frac{\sqrt{x^2+a^2}}{a^2x} + C $
+
+\item $ \int \sqrt{x^2+a^2} \md x = \frac{x}{2}\sqrt{x^2+a^2}+\frac{a^2}{2}\ln(x + \sqrt{x^2+a^2}) + C $
+
+\item $ \int \sqrt{(x^2+a^2)^3} \md x = \frac{x}{8}(2x^2+5a^2)\sqrt{x^2+a^2} + \frac{3}{8}a^4\ln(x + \sqrt{x^2+a^2}) + C $
+
+\item $ \int x \sqrt{x^2+a^2} \md x = \frac{1}{3} \sqrt{(x^2+a^2)^3} + C $
+
+\item $ \int x^2\sqrt{x^2+a^2} \md x = \frac{x}{8}(2x^2+a^2)\sqrt{x^2+a^2} - \frac{a^4}{8}\ln(x+\sqrt{x^2+a^2}) + C $
+
+\item $ \int \frac{\sqrt{x^2+a^2}}{x} \md x = \sqrt{x^2+a^2} + a \ln \frac{\sqrt{x^2+a^2}-a}{|x|} + C $
+
+\item $ \int \frac{\sqrt{x^2+a^2}}{x^2} \md x = -\frac{\sqrt{x^2+a^2}}{x} + \ln(x + \sqrt{x^2+a^2}) + C $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$\sqrt{x^2-a^2}$($a>0$)的积分}
+
+\begin{enumerate}
+
+\item $ \int \frac{\md x}{\sqrt{x^2-a^2}} = \frac{x}{|x|} \mathrm{arch} \frac{|x|}{a} + C_1 = \ln\left|x+\sqrt{x^2-a^2}\right| + C $
+
+\item $ \int \frac{\md x}{\sqrt{(x^2-a^2)^3}} = -\frac{x}{a^2\sqrt{x^2-a^2}} + C$
+
+\item $ \int \frac{x}{\sqrt{x^2-a^2}} \mathrm{d}x = \sqrt{x^2-a^2} + C $
+
+\item $ \int \frac{x}{\sqrt{(x^2-a^2)^3}} \mathrm{d}x = -\frac{1}{\sqrt{x^2-a^2}} + C $
+
+\item $ \int \frac{x^2}{\sqrt{x^2-a^2}} \md x = \frac{x}{2}\sqrt{x^2-a^2} + \frac{a^2}{2}\ln|x+\sqrt{x^2-a^2}| + C $
+
+\item $ \int \frac{x^2}{\sqrt{(x^2-a^2)^3}} \md x = -\frac{x}{\sqrt{x^2-a^2}} + \ln|x+\sqrt{x^2-a^2}| + C $
+
+\item $ \int \frac{\md x}{x\sqrt{x^2-a^2}} = \frac{1}{a} \arccos \frac{a}{|x|} + C $
+
+\item $ \int \frac{\md x}{x^2\sqrt{x^2-a^2}} = \frac{\sqrt{x^2-a^2}}{a^2x} + C $
+
+\item $ \int \sqrt{x^2-a^2} \md x = \frac{x}{2}\sqrt{x^2-a^2} - \frac{a^2}{2}\ln|x + \sqrt{x^2-a^2}| + C $
+
+\item $ \int \sqrt{(x^2-a^2)^3} \md x = \frac{x}{8}(2x^2-5a^2)\sqrt{x^2-a^2} + \frac{3}{8}a^4\ln|x + \sqrt{x^2-a^2}| + C $
+
+\item $ \int x \sqrt{x^2-a^2} \md x = \frac{1}{3} \sqrt{(x^2-a^2)^3} + C $
+
+\item $ \int x^2\sqrt{x^2-a^2} \md x = \frac{x}{8}(2x^2-a^2)\sqrt{x^2-a^2} - \frac{a^4}{8}\ln|x+\sqrt{x^2-a^2}| + C $
+
+\item $ \int \frac{\sqrt{x^2-a^2}}{x} \md x = \sqrt{x^2-a^2} - a \arccos\frac{a}{|x|} + C $
+
+\item $ \int \frac{\sqrt{x^2-a^2}}{x^2} \md x = -\frac{\sqrt{x^2-a^2}}{x} + \ln|x + \sqrt{x^2-a^2}| + C $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$\sqrt{a^2-x^2}$($a>0$)的积分}
+
+\begin{enumerate}
+
+\item $ \int \frac{\md x}{\sqrt{a^2-x^2}} = \arcsin \frac{x}{a} + C $
+
+\item $ \frac{\md x}{\sqrt{(a^2-x^2)^3}} = \frac{x}{a^2\sqrt{a^2-x^2}} + C $
+
+\item $ \int \frac{x}{\sqrt{a^2-x^2}} \md x = -\sqrt{a^2-x^2} + C $
+
+\item $ \int \frac{x}{\sqrt{(a^2-x^2)^3}} \md x = \frac{1}{\sqrt{a^2-x^2}} + C $
+
+\item $ \int \frac{x^2}{\sqrt{a^2-x^2}} \md x = -\frac{x}{2}\sqrt{a^2-x^2} + \frac{a^2}{2}\arcsin\frac{x}{a} + C $
+
+\item $ \int \frac{x^2}{\sqrt{(a^2-x^2)^3}} \md x = \frac{x}{\sqrt{a^2-x^2}} - \arcsin\frac{x}{a} + C $
+
+\item $ \int \frac{\md x}{x\sqrt{a^2-x^2}} = \frac{1}{a}\ln\frac{a-\sqrt{a^2-x^2}}{|x|} + C$
+
+\item $ \int \frac{\md x}{x^2\sqrt{a^2-x^2}} = -\frac{\sqrt{a^2-x^2}}{a^2x} + C $
+
+\item $ \int \sqrt{a^2-x^2}\md x = \frac{x}{2}\sqrt{a^2-x^2} + \frac{a^2}{2}\arcsin\frac{x}{a} + C $
+
+\item $ \int \sqrt{(a^2-x^2)^3}\md x = \frac{x}{8}(5a^2-2x^2)\sqrt{a^2-x^2}+\frac{3}{8}a^4\arcsin\frac{x}{a} + C $
+
+\item $ \int x\sqrt{a^2-x^2}\md x = -\frac{1}{3}\sqrt{(a^2-x^2)^3} + C $
+
+\item $ \int x^2\sqrt{a^2-x^2}\md x = \frac{x}{8}(2x^2-a^2)\sqrt{a^2-x^2}+\frac{a^4}{8}\arcsin\frac{x}{a} + C $
+
+\item $ \int \frac{\sqrt{a^2-x^2}}{x}\md x = \sqrt{a^2-x^2} + a \ln \frac{a-\sqrt{a^2-x^2}}{|x|} + C $
+
+\item $ \int \frac{\sqrt{a^2-x^2}}{x^2} \md x = -\frac{\sqrt{a^2-x^2}}{x} - \arcsin\frac{x}{a} + C $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$\sqrt{\pm ax^2+bx+c}$($a>0$)的积分}
+
+\begin{enumerate}
+
+\item $ \int \frac{\md x}{\sqrt{ax^2+bx+c}} = \frac{1}{\sqrt{a}} \ln | 2ax+b+2\sqrt{a}\sqrt{ax^2+bx+c} | + C $
+
+\item $ \int \sqrt{ax^2+bx+c} \md x = \frac{2ax+b}{4a}\sqrt{ax^2+bx+c} +
+	\frac{4ac-b^2}{8\sqrt{a^3}}\ln |2ax+b+2\sqrt{a}\sqrt{ax^2+bx+c}| + C $
+
+\item $ \int \frac{x}{\sqrt{ax^2+bx+c}} \md x = \frac{1}{a}\sqrt{ax^2+bx+c} -
+	\frac{b}{2\sqrt{a^3}}\ln | 2ax+b+2\sqrt{a}\sqrt{ax^2+bx+c} | + C $
+
+\item $ \int \frac{\md x}{\sqrt{c+bx-ax^2}} = -\frac{1}{\sqrt{a}} \arcsin \frac{2ax-b}{\sqrt{b^2+4ac}} + C  $
+
+\item $ \int \sqrt{c+bx-ax^2} \md x = \frac{2ax-b}{4a}\sqrt{c+bx-ax^2} + \\
+	\frac{b^2+4ac}{8\sqrt{a^3}}\arcsin\frac{2ax-b}{\sqrt{b^2+4ac}} + C $
+
+\item $ \int \frac{x}{\sqrt{c+bx-ax^2}} \md x = -\frac{1}{a}\sqrt{c+bx-ax^2} + \frac{b}{2\sqrt{a^3}}\arcsin\frac{2ax-b}{\sqrt{b^2+4ac}} + C $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有$\sqrt{\pm\frac{x-a}{x-b}}$或$\sqrt{(x-a)(x-b)}$的积分}
+
+\begin{enumerate}
+
+\item $ \int \sqrt\frac{x-a}{x-b} \md x = (x-b)\sqrt\frac{x-a}{x-b} + (b-a)\ln(\sqrt{|x-a|}+\sqrt{|x-b|}) + C $
+
+\item $ \int \sqrt\frac{x-a}{b-x} \md x = (x-b)\sqrt\frac{x-a}{b-x} + (b-a)\arcsin\sqrt\frac{x-a}{b-x} + C $
+
+\item $ \int \frac{\md x}{\sqrt{(x-a)(b-x)}} = 2\arcsin\sqrt\frac{x-a}{b-x} + C$ ($a<b$)
+
+\item $ \int \sqrt{(x-a)(b-x)} \md x = \frac{2x-a-b}{4}\sqrt{(x-a)(b-x)} + \frac{(b-a)^2}{4}\arcsin\sqrt\frac{x-a}{b-x} + C, (a<b) $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有指数函数的积分}
+
+\begin{enumerate}
+
+\item $ \int a^x \md x= \frac{1}{\ln a} a^x + C$
+
+\item $ \int \me ^{ax}\md x=\frac{1}{a}a^{ax}+C $
+
+\item $ \int x \me  ^ {ax} \md x=\frac{1}{a^2}(ax-1)a^{ax} +C $
+
+\item $ \int x^n \me ^{ax} \md x=\frac{1}{a}x^n \me ^{ax}-\frac{n}{a} \int x^{n-1} \me ^ {ax} \md x $
+
+\item $ \int x a^x \md x = \frac{x}{\ln a}a^x-\frac{1}{(\ln a)^2}a^x+C $
+
+\item $ \int x^n a^x \md x= \frac{1}{\ln a}x^n a^x-\frac{n}{\ln a}\int x^{n-1}a^x \md x $
+
+\item $ \int \me ^{ax} \sin bx \md x = \frac{1}{a^2+b^2}\me ^{ax}(a \sin bx - b \cos bx)+C $
+
+\item $ \int \me ^{ax} \cos bx \md x = \frac{1}{a^2+b^2}\me ^{ax}(b \sin bx + a \cos bx)+C $
+
+\item $ \int \me ^{ax} \sin ^ n bx \md x=\frac{1}{a^2+b^2 n^2}\me ^{ax} \sin ^ {n-1} bx (a \sin bx -nb \cos bx) +\frac{n(n-1)b^2}{a^2+b^2 n^2}\int \me ^{ax} \sin ^{n-2} bx \md x $
+
+\item $ \int \me ^{ax} \cos ^ n bx \md x=\frac{1}{a^2+b^2 n^2}\me ^{ax} \cos ^ {n-1} bx (a \cos bx +nb \sin bx) +\frac{n(n-1)b^2}{a^2+b^2 n^2}\int \me ^{ax} \cos ^{n-2} bx \md x $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有对数函数的积分}
+
+\begin{enumerate}
+
+\item $ \int \ln x \md x = x \ln x - x + C$
+
+\item $ \int \frac{\md x}{x \ln x} =\ln \big | \ln x \big |+C $
+
+\item $ \int x^n \ln x \md x = \frac{1}{n+1}x^{n+1}(\ln x - \frac{1}{n+1} ) +C $
+
+\item $ \int (\ln x)^{n} \md x = x(\ln x)^ n - n \int (\ln x)^{n-1} \md x $
+
+\item $ \int x ^ m(\ln x)^n \md x=\frac{1}{m+1}x^{m+1} (\ln x)^n - \frac{n}{m+1} \int x^m(\ln x)^{n-1}\md x $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有三角函数的积分}
+
+\begin{enumerate}
+
+\item $ \int \sin x \md x = -\cos x + C $
+
+\item $ \int \cos x \md x = \sin x + C $
+
+\item $ \int \tan x \md x = -\ln|\cos x| + C $
+
+\item $ \int \cot x \md x = \ln |\sin x| + C $
+
+\item $ \int \sec x \md x = \ln \left| \tan\left( \frac{\pi}{4} + \frac{x}{2} \right) \right| + C = \ln |\sec x + \tan x| + C $
+
+\item $ \int \csc x \md x = \ln \left| \tan\frac{x}{2} \right| + C = \ln |\csc x - \cot x| + C $
+
+\item $ \int \sec^2 x \md x = \tan x + C $
+
+\item $ \int \csc^2 x \md x = -\cot x + C $
+
+\item $ \int \sec x \tan x \md x = \sec x + C $
+
+\item $ \int \csc x \cot x \md x = -\csc x + C $
+
+\item $ \int \sin^2 x \md x = \frac{x}{2} - \frac{1}{4} \sin 2x + C $
+
+\item $ \int \cos^2 x \md x = \frac{x}{2} + \frac{1}{4} \sin 2x + C $
+
+\item $ \int \sin^n x \md x = -\frac{1}{n} \sin^{n-1} x \cos x + \frac{n-1}{n} \int \sin^{n-2} x \md x $
+
+\item $ \int \cos^n x \md x = \frac{1}{n} \cos^{n-1} x \sin x + \frac{n-1}{n} \int \cos^{n-2} x \md x $
+
+\item $ \int \frac{\md x}{\sin^n x} = -\frac{1}{n-1} \frac{\cos x}{\sin^{n-1}x} + \frac{n-2}{n-1} \int \frac{\md x}{\sin^{n-2}x} $
+
+\item $ \int \frac{\md x}{\cos^n x} = \frac{1}{n-1} \frac{\sin x}{\cos^{n-1}x} + \frac{n-2}{n-1} \int \frac{\md x}{\cos^{n-2}x} $
+
+\item \[ \begin{split} {} & \int \cos^m x \sin^n x \md x \\
+	= & \frac{1}{m+n} \cos^{m-1} x \sin^{n+1}x + \frac{m-1}{m+n}\int\cos^{m-2}x\sin^nx\md x \\
+	= & -\frac{1}{m+n} \cos^{m+1} x \sin^{n-1}x + \frac{n-1}{m+1} \int \cos^m x\sin^{n-2} x \md x \end{split} \]
+
+\item $ \int \sin ax \cos bx \md x = -\frac{1}{2(a+b)}\cos(a+b)x - \frac{1}{2(a-b)}\cos(a-b)x + C $
+
+\item $ \int \sin ax \sin bx \md x = -\frac{1}{2(a+b)}\sin(a+b)x + \frac{1}{2(a-b)}\sin(a-b)x + C $
+
+\item $ \int \cos ax \cos bx \md x =  \frac{1}{2(a+b)}\sin(a+b)x + \frac{1}{2(a-b)}\sin(a-b)x + C $
+
+\item $ \int \frac{\md x}{a + b \sin x} = \begin{cases}
+\frac{2}{\sqrt{a^2-b^2}}\arctan\frac{a\tan\frac{x}{2}+b}{\sqrt{a^2-b^2}} + C & (a^2 > b^2) \\
+\frac{1}{\sqrt{b^2-a^2}}\ln \left| \frac{a\tan\frac{x}{2}+b-\sqrt{b^2-a^2}}{a\tan\frac{x}{2}+b+\sqrt{b^2-a^2}} \right| + C & (a^2 < b^2)
+\end{cases} $
+
+\item $ \int \frac{\md x}{a + b \cos x} = \begin{cases}
+\frac{2}{a+b}\sqrt\frac{a+b}{a-b} \arctan\left(\sqrt\frac{a-b}{a+b}\tan\frac{x}{2}\right) + C & (a^2 > b^2) \\
+\frac{1}{a+b}\sqrt\frac{a+b}{a-b} \ln \left| \frac{\tan\frac{x}{2}+\sqrt\frac{a+b}{b-a}}{\tan\frac{x}{2}-\sqrt\frac{a+b}{b-a}} \right| + C
+& (a^2 < b^2)
+\end{cases} $
+
+\item $ \int \frac{\md x}{a^2\cos^2x+b^2\sin^2x} = \frac{1}{ab} \arctan\left( \frac{b}{a}\tan x \right) + C $
+
+\item $ \int \frac{\md x}{a^2\cos^2x-b^2\sin^2x} = \frac{1}{2ab}\ln\left|\frac{b\tan x+a}{b\tan x-a}\right| + C $
+
+\item $ \int x \sin ax \md x = \frac{1}{a^2} \sin ax - \frac{1}{a} x \cos ax + C $
+
+\item $ \int x^2 \sin ax \md x = -\frac{1}{a} x^2 \cos ax + \frac{2}{a^2} x \sin ax + \frac{2}{a^3} \cos ax + C$
+
+\item $ \int x \cos ax \md x = \frac{1}{a^2} \cos ax + \frac{1}{a} x \sin ax + C $
+
+\item $ \int x^2 \cos ax \md x = \frac{1}{a} x^2 \sin ax + \frac{2}{a^2} x \cos ax - \frac{2}{a^3} \sin ax + C $
+
+\end{enumerate}
+
+\paragraph{$\blacksquare$ 含有反三角函数的积分(其中 $a>0$)}
+
+\begin {enumerate}
+
+\item $ \int \arcsin \frac{x}{a} \md x = x \arcsin \frac{x}{a} + \sqrt{a^2-x^2}+C $
+
+\item $ \int x \arcsin \frac{x}{a} \md x= (\frac{x^2}{2}-\frac{a^2}{4})\arcsin \frac{x}{a} + \frac{x}{4} \sqrt{x^2-x^2}+C$
+
+\item $ \int x^2 \arcsin \frac{x}{a} \md x = \frac{x^3}{3}\arcsin \frac{x}{a}+\frac{1}{9}(x^2+2 a^2)\sqrt{a^2-x^2}+C $
+
+\item $ \int \arccos \frac{x}{a} \md x= x \arccos \frac{x}{a} - \sqrt{a^2-x^2} +C $
+
+\item $ \int x \arccos \frac{x}{a} \md x= (\frac{x^2}{2}-\frac{a^2}{4})\arccos \frac{x}{a} - \frac{x}{4} \sqrt{a^2-x^2}+C $
+
+\item $ \int x^2 \arccos \frac{x}{a}\md x= \frac{x^3}{3}\arccos \frac{x}{a} - \frac{1}{9}(x^2+2a^2)\sqrt{a^2-x^2}+C$
+
+\item $ \int \arctan \frac{x}{a} \md x=x \arctan \frac{x}{a}-\frac{a}{2}\ln (a^2+x^2)+C $
+
+\item $ \int x\arctan \frac{x}{a} \md x = \frac{1}{2}(a^2+x^2)\arctan \frac{x}{a} -\frac{a}{2}x+C $
+
+\item $ \int x^2 \arctan \frac{x}{a} \md x= \frac{x^3}{3} \arctan \frac{x}{a} - \frac{a}{6}x^2 + \frac{a^3}{6} \ln (a^2+x^2)+C $
+
+\end {enumerate}

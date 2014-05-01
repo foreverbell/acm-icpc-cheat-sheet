@@ -1,0 +1,485 @@
+﻿\documentclass[10pt]{article}
+
+%landscape, twocolumn
+\usepackage[a4paper, landscape, twocolumn, twoside]{geometry}
+% \usepackage[a4paper, top = 0.6in, bottom = 0.3in, left = 0.5in, right = 0.5in, landscape, twocolumn, twoside]{geometry}
+
+\usepackage{calc}
+\setlength{\topmargin}{-1in + 15pt}  % 页眉以上
+\setlength{\headheight}{12pt}        % 页眉
+\setlength{\headsep}{10pt}           % 页眉到正文
+\setlength{\footskip}{0pt}           % 页脚
+\setlength{\textheight}{\paperheight - 60pt}
+
+\setlength{\oddsidemargin}{-1in + 30pt}
+\setlength{\evensidemargin}{-1in + 30pt}
+\setlength{\textwidth}{\paperwidth - 60pt}
+
+\usepackage[BoldFont, SlantFont, CJKsetspaces, CJKchecksingle]{xeCJK}
+\setCJKmainfont[BoldFont = SimHei]{SimSun}
+\setCJKmonofont{SimSun}
+\usepackage[xetex, CJKbookmarks, colorlinks]{hyperref}
+\usepackage{fontspec, xunicode, xltxtra}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\setlength{\columnsep}{0.4in}
+
+\pagestyle{fancy}
+\fancyhead[LE,RO]{\bfseries\thepage}
+\fancyhead[LO,RE]{\bfseries\leftmark}
+\fancyhead[C]{\bfseries ForeverBell}
+\fancyfoot{}
+
+% \newfontfamily{\lsttype}{Liberation Mono}
+
+\definecolor{dkgreen}{RGB}{63, 127, 85}
+\definecolor{dkpurple}{RGB}{127, 0, 85}
+\definecolor{dkgrey}{RGB}{127, 127, 127}
+\definecolor{dkred}{RGB}{154, 0, 0}
+\lstset {
+  basicstyle = \small\ttfamily,
+  language = C++,
+  aboveskip = 0pt,
+  numbers = left,
+  numberstyle = \footnotesize\ttfamily\color{dkgrey},
+  numbersep=5pt,
+  tabsize = 2,
+  breaklines = true,
+  breakindent = 1.1em,
+  keywordstyle = \color{dkpurple},
+  commentstyle = \color{dkgreen},
+  backgroundcolor = \color{white},
+  stringstyle = \color{dkred},
+  deletekeywords = {in},
+  showspaces = false,
+  basewidth = {0.55em, 0.5em},
+  frame = trbl,
+  rulecolor=\color{dkgrey},
+  showstringspaces = false,
+  escapeinside = {<TeX>}{</TeX>}
+}
+\begin{document}
+% \title{\LARGE Reference Document \& Code Library}
+% \date{}
+% \author{\textbf{ForeverBell}}
+% \maketitle
+\tableofcontents
+\newpage
+
+\section{Data Structure}
+\subsection{Splay}
+\lstinputlisting{code/splay.cpp}
+\subsection{Dynamic Tree}
+\lstinputlisting{code/link_cut_tree.cpp}
+\subsection{KD Tree}
+\lstinputlisting{code/k-dtree.cpp}
+\subsection{Treap}
+\lstinputlisting{code/treap.cpp}
+\subsection{President Treap}
+\lstinputlisting{code/president_treap.cpp}
+\section{String Algorithms}
+\subsection{Common}
+\lstinputlisting{code/string.cpp}
+\subsection{Aho-Crosick Automaton}
+\lstinputlisting{code/ac_automaton.cpp}
+\subsection{Suffix Array}
+\lstinputlisting{code/suffix_array.cpp}
+\section{Math}
+\subsection{Gauss Elimiation}
+\lstinputlisting{code/gauss_elimination.cpp}
+\subsection{Matrix Multiplication}
+\lstinputlisting{code/matrix.cpp}
+Optimization of recursion matrix: \\
+$h_n=a_1h_{n-1}+a_2h_{n-2}+a_3h_{n-3}+ \ldots + a_kh_{n-k}$, Construct matrix of $k*k$:
+\begin{gather*}
+\mathbf{M} =
+\begin{bmatrix}
+a_1 & a_2 & a_3 & \cdots & a_{k-2} & a_{k-1} & a_k \\
+1 & 0 & 0 & \cdots & 0 & 0 & 0 \\
+0 & 1 & 0 & \cdots & 0 & 0 & 0 \\
+0 & 0 & 1 & \cdots & 0 & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & 1 & 0 & 0 \\
+0 & 0 & 0 & \cdots & 0 & 1 & 0 \\
+\end{bmatrix}
+\end{gather*}
+Then the characteristic polynomial of $\mathbf{M}$ is
+\begin{gather*}
+f(\lambda)=|\lambda \mathbf{E} - \mathbf{M}| =
+\begin{bmatrix}
+\lambda - a_1 & -a_2 & -a_3 & \cdots & -a_{k-2} & -a_{k-1} & -a_k \\
+-1 & \lambda & 0 & \cdots & 0 & 0 & 0 \\
+0 & -1 & \lambda & \cdots & 0 & 0 & 0 \\
+0 & 0 & -1 & \cdots & 0 & 0 & 0 \\
+\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+0 & 0 & 0 & \cdots & -1 & \lambda & 0 \\
+0 & 0 & 0 & \cdots & 0 & -1 & \lambda \\
+\end{bmatrix}
+\\
+=\lambda ^k - a_1 \lambda ^ {k-1} - a_2 \lambda ^ {k-2} - \ldots - a_k.
+\end{gather*}
+Apply Hamilton-Cayley theorem, we have $f(\mathbf{M})=\mathbf{0}$. \\
+And, $\forall i$, $\mathbf{M} ^ i$ can be written as a linear combination of $\mathbf{E},\mathbf{M},\mathbf{M} ^2, \ldots, \mathbf{M} ^ {k-1}$.\\
+So the matrix multiplication is reduced to polynomial multiplication, which can be computed in $O(n^2)$.
+\subsection{Determinant}
+\lstinputlisting{code/determinant.cpp}
+Laplacian matrix $L=(\ell_{i,j})_{n*n}$ is defined as: $L=D-A$, that is, it is the difference of the degree matrix $D$ and the adjacency matrix $A$ of the graph. \\
+From the definition it follows that:
+\begin{displaymath}
+\ell_{i,j}=
+\left\{ \begin{array}{ll}
+deg(v_i) & \textrm{if } i=j \\
+-1 & \textrm{if }i\ne j\textrm{ and }v_i\textrm{ is adjacent to }v_j \\
+0 & \textrm{otherwise}
+\end{array} \right.
+\end{displaymath}
+Then the number of spanning trees of a graph on $n$ vertices is the determinant of any $n-1$ submatrix of $L$.
+\subsection{Polynomial Root}
+\lstinputlisting{code/polynomial_root.cpp}
+\subsection{Number Theory Library}
+\lstinputlisting{code/number_theory.cpp}
+\subsection{Number Partition} {
+\lstinputlisting{code/partition.cpp}
+\section{Computational Geometry}
+\subsection{Common}
+\lstinputlisting{code/computational_geometry/common.cpp}
+\subsection{Graham Hull}
+\lstinputlisting{code/computational_geometry/graham_hull.cpp}
+\subsection{Minkowski Sum of Convex Hull}
+\noindent
+Wiki: \\
+The Minkowski sum of two sets of position vectors $A$ and $B$ in Euclidean space is formed by adding each vector in $A$ to each vector in $B$, i.e. the set
+\begin{displaymath}
+A+B=\{ \vec{a} + \vec{b} \, | \, \vec{a} \in A, \vec{b} \in B \}.
+\end{displaymath}
+For all subsets $S_1$ and $S_2$ of a real vector-space, the convex hull of their Minkowski sum is the Minkowski sum of their convex hulls $\mathrm{Conv} (S_1 + S_2) = \mathrm{Conv} (S_1) + \mathrm{Conv} (S_2)$. \\
+Minkowski sums are used in motion planning of an object among obstacles. They are used for the computation of the configuration space, which is the set of all admissible positions of the object. In the simple model of translational motion of an object in the plane, where the position of an object may be uniquely specified by the position of a fixed point of this object, the configuration space are the Minkowski sum of the set of obstacles and the movable object placed at the origin and rotated $180$ degrees. \\
+\lstinputlisting{code/computational_geometry/minkowski_convex_hull.cpp}
+\subsection{Rotating Calipers}
+\lstinputlisting{code/computational_geometry/rotating_caliper.cpp}
+\subsection{Closest Pair Points}
+\lstinputlisting{code/computational_geometry/closest_pair.cpp}
+\subsection{Halfplane Intersection}
+\lstinputlisting{code/computational_geometry/halfplane_intersection.cpp}
+\lstinputlisting{code/computational_geometry/halfplane_intersection_nlogn.cpp}
+\subsection{Geometry Objects Intersection \& Tangent}
+\lstinputlisting{code/computational_geometry/circle_tangent.cpp}
+\lstinputlisting{code/computational_geometry/circle_intersection.cpp}
+\lstinputlisting{code/computational_geometry/triangle_circle_intersection.cpp}
+\subsection{Circle Union}
+\lstinputlisting{code/computational_geometry/circle_union.cpp}
+\subsection{Minimum Covering Circle}
+\lstinputlisting{code/computational_geometry/minimum_circle.cpp}
+\subsection{Convex Polygon Union}
+\lstinputlisting{code/computational_geometry/poly_union.cpp}
+\subsection{Simpson Integral}
+\lstinputlisting{code/computational_geometry/simpson.cpp}
+\subsection{3D Common}
+\lstinputlisting{code/computational_geometry/common3d.cpp}
+\subsection{3D Hull}
+\lstinputlisting{code/computational_geometry/hull3d.cpp}
+\section{Graph}
+\subsection{Tarjan}
+\lstinputlisting{code/tarjan.cpp}
+For bidirectional graph(cut vertex \& bridge): \\
+root: $u$ has $2$ or more children. \\
+others: exist a child $v$ satifsying $dfn[u] \le low[v]$. \\
+$(u, v)$ is bridge only if $dfn[u] < low[v]$ (trick: multiple edges).\\
+\subsection{Max Flow}
+\lstinputlisting{code/sap_maxflow.cpp}
+Notes on vertex covering and independent set on bipartite graph:\\
+Minimum Vertex Covering Set V': $\forall (u,v) \in E$, $u \in V'$ or $v \in V'$ holds. \\
+Maximum Vertex Independent Set V': $\forall u,v \in V'$, $(u,v) \notin E$ holds.\\
+Construct a flow graph $G$, run DFS from $s$ on reduction graph, the vertices not visited in left side and visited in right side form the minimum vertex covering set.\\
+Maximum vertex independent set vice versa.\\
+\subsection{Cost Flow}
+\lstinputlisting{code/cost_flow.cpp}
+\subsection{Kuhn Munkras}
+\lstinputlisting{code/km.cpp}
+\subsection{Hopcroft Karp}
+\lstinputlisting{code/hopcroft_karp.cpp}
+\subsection{Blossom Matching}
+\lstinputlisting{code/blossom_matching.cpp}
+\subsection{Stoer Wagner}
+\lstinputlisting{code/stoer_wagner.cpp}
+\subsection{Directed MST}
+\lstinputlisting{code/dirmst.cpp}
+\subsection{Minimum Mean Cycle}
+\lstinputlisting{code/mmc.cpp}
+\subsection{Divide and Conquer on Tree}
+\lstinputlisting{code/dac_on_tree.cpp}
+\subsection{Dominator Tree}
+\noindent
+A dominator tree is a tree where each node's children are those nodes it immediately dominates. Because the immediate dominator is unique, it is a tree. The start node is the root of the tree.
+\lstinputlisting{code/dominator_tree.cpp}
+\section{Others}
+% \subsection{Big Number}
+% \lstinputlisting{code/big_number.cpp}
+\subsection{Expr Parsing}
+\lstinputlisting{code/expr_parse.cpp}
+\subsection{Steiner's Problem}
+\lstinputlisting{code/steiner.cpp}
+\subsection{LCA}
+\lstinputlisting{code/lca.cpp}
+\subsection{Dancing Links X}
+\lstinputlisting{code/dancing_links.cpp}
+Find the minimum row set, satisfying each column has exactly one $1$. \\
+Let the row representing each choice, if some choices are mutually exclusive, add a column with these rows associated. \\
+Use the sudoku problem as an instance. There are $729$ choices($81$ squares can be filled in with $9$ numbers), $4$ constraints:\\
+(1). Each box has exactly one number; \\
+(2). Number $1$ to $9$ appears exactly once in each row, column, sub square. \\
+Thus we can construct a $729*324$ matrix, each $81$ columns representing each constraint.\\
+\subsection{Linar Programming - Simplex}
+\lstinputlisting{code/simplex.cpp}
+\subsection{FFT}
+\lstinputlisting{code/fft.cpp}
+\subsection{NTT}
+\lstinputlisting{code/ntt.cpp}
+\subsection{Mo Dui Algorithm}
+\lstinputlisting{code/mo_algo.cpp}
+\subsection{Cyclic LCS}
+\lstinputlisting{code/clcs.cpp}
+% \subsection{Curve Fit}
+% \lstinputlisting{code/curve_fit.cpp}
+\section{Tips}
+\subsection{Useful Codes}
+\begin{itemize}
+\item Accelerated C++ stream IO
+\begin{lstlisting}[frame=none]
+#include <iomanip>
+ios_base::sync_with_stdio(false);
+\end{lstlisting}
+\item Enumerate all non-empty subsets
+\begin{lstlisting}[frame=none]
+for (int sub = mask; sub > 0; sub = (sub - 1) & mask)
+\end{lstlisting}
+\item Enumerate $\mathrm{C}_{n}^{k}$
+\begin{lstlisting}[frame=none]
+for (int comb = (1 << k) - 1; comb < 1 << n; ) {
+	// ...
+	int x = comb & -comb, y = comb + x;
+	comb = ((comb & ~y) / x >> 1) | y;
+}
+\end{lstlisting}
+\item Convert YY/MM/DD to date
+\begin{lstlisting}[frame=none]
+int days(int y, int m, int d) {
+	if (m < 3) y--, m += 12;
+	return 365 * y + y / 4 - y / 100 + y / 400 + (153 * m + 2) / 5 + d;
+}
+\end{lstlisting}
+\end{itemize}
+\subsection{Formulas}
+\subsubsection{Geometry}
+\paragraph{$\blacksquare$ Euler's Formula}
+\noindent \\
+For convex polyhedron: $V-E+F=2$. \\
+For planar graph: $|F|=|E|-|V|+n+1$, $n$ denotes the number of connected components.
+\paragraph{$\blacksquare$ Pick's Theorem}
+\begin{eqnarray*}
+S=I+\frac{B}{2}-1
+\end{eqnarray*}
+$S$ is the area of lattice polygon, $I$ is the number of lattice interior points, and $B$ is the number of lattice boundary points.
+\paragraph{$\blacksquare$ Heron's Formula}
+\begin{eqnarray*}
+&& S=\sqrt{p(p-a)(p-b)(p-c)} \\
+&& p=\frac{a+b+c}{2}
+\end{eqnarray*}
+\paragraph{$\blacksquare$ Volumes}
+\noindent
+\begin{itemize}
+\item Pyramid $V=\frac{1}{3}Sh$.
+\item Sphere $V=\frac{4}{3}\pi R^3$.
+\item Frustum $V=\frac{1}{3}h(S_1+\sqrt {S_1S_2}+S_2)$.
+% \item Ellipsoid \\
+% For ellipsoid with the standard equation in a Cartesian coordinate system $\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}+\frac{(z-z_0)^2}{c^2}=1$, $V=\frac{4}{3} \pi abc$.
+\item Ellipsoid $V=\frac{4}{3} \pi abc$.
+\item Tetrahedron \\
+For tetrahedron $O-ABC$, let $a=AB,b=BC,c=CA,d=OC,e=OA,f=OB$, ${(12V)}^2=a^2d^2(b^2+c^2+e^2+f^2-a^2-d^2)+b^2e^2(c^2+a^2+f^2+d^2-b^2-e^2)+c^2f^2(a^2+b^2+d^2+e^2-c^2-f^2)-a^2b^2c^2-a^2e^2f^2-d^2b^2f^2-d^2e^2c^2$.
+\end{itemize}
+\paragraph{$\blacksquare$ Radius of Inscribedcircle \& Circumcircle}
+\begin{eqnarray*}
+&& r=\frac{2S}{a+b+c},\, R=\frac{abc}{4S}
+\end{eqnarray*}
+\paragraph{$\blacksquare$ Hypersphere}
+\begin{eqnarray*}
+&& V_2=\pi R^2,\, S_2=2\pi R \\
+&& V_3=\frac{4}{3}\pi R^3,\, S_3=4\pi R^2 \\
+&& V_4=\frac{1}{2}\pi ^2 R^4,\, S_4=2\pi ^2 R^3 \\
+&& V_5=\frac{8}{15}\pi ^2 R^5,\, S_5=\frac{8}{3}\pi ^2 R^4 \\
+&& V_6=\frac{1}{6}\pi ^3 R^6,\, S_6=\pi ^3 R^5 \\
+&& \mathrm{Generally}, V_n=\frac{2\pi}{n}V_{n-2},\, S_{n-1}=\frac{2\pi}{n-2}S_{n-3} \\
+&& \mathrm{Where}, S_0=2,\, V_1=2,\, S_1=2\pi ,\, V_2=\pi
+\end{eqnarray*}
+% \paragraph{$\blacksquare$ Affine Transformation}
+% \begin{gather*}
+% \mathrm{Tr} = \mathrm{TrTra} * \mathrm{TrRot} * \mathrm{TrSca} =
+% \begin{bmatrix}
+% 1 & 0 & T_x \\
+% 0 & 1 & T_y \\
+% 0 & 0 & 1
+% \end{bmatrix}
+% \begin{bmatrix}
+% \cos \alpha & - \sin \alpha & 0 \\
+% \sin \alpha & \cos \alpha & 0 \\
+% 0 & 0 & 1
+% \end{bmatrix}
+% \begin{bmatrix}
+% S_x & 0 & 0 \\
+% 0 & S_y & 0 \\
+% 0 & 0 & 1
+% \end{bmatrix}
+% \\
+% =
+% \begin{bmatrix}
+% S_x \cos \alpha & -S_y \sin \alpha & T_x \\
+% S_x \sin \alpha & S_y \cos \alpha & T_y \\
+% 0 & 0 & 1
+% \end{bmatrix}
+% \end{gather*}
+% The fixed point is $(x_0,y_0)$, where
+% \begin{eqnarray*}
+% && x_0 =  - \frac{T_x (S_y \cos \alpha - 1)}{S_x S_y - S_x \cos \alpha - S_y \cos \alpha + 1} - \frac{S_y T_y \sin \alpha}{S_x S_y - S_x \cos \alpha - S_y \cos \alpha + 1} \\
+% && y_0 = \frac{S_x T_x \sin \alpha}{S_x S_y - S_x \cos \alpha - S_y \cos \alpha + 1} - \frac{T_y (S_x \cos \alpha - 1)}{S_x S_y - S_x \cos \alpha - S_y \cos \alpha + 1}
+% \end{eqnarray*}
+\paragraph{$\blacksquare$ Matrix of rotating $\theta$ about arbitrary axis A}
+\begin{gather*}
+\begin{bmatrix}
+c+(1-c)A_x^2 & (1-c)A_xA_y-sA_z & (1-c)A_xA_z+sA_y \\
+(1-c)A_xA_y+sA_z & c+(1-c)A_y^2 & (1-c)A_yA_z-sA_x \\
+(1-c)A_xA_z-sA_y & (1-c)A_yA_z+sA_x & c+(1-c)A_z^2
+\end{bmatrix}
+\end{gather*}
+\subsubsection{Math}
+\paragraph{$\blacksquare$ Sums}
+\begin{eqnarray*}
+&& 1+2+\ldots +n=\frac{n^2}{2}+\frac{n}{2} \\
+&& 1^2+2^2+\ldots +n^2=\frac{n^3}{3}+\frac{n^2}{2}+\frac{n}{6} \\
+&& 1^3+2^3+\ldots +n^3=\frac{n^4}{4}+\frac{n^3}{2}+\frac{n^2}{4} \\
+&& 1^4+2^4+\ldots +n^4=\frac{n^5}{5}+\frac{n^4}{2}+\frac{n^3}{3}-\frac{n}{30} \\
+&& 1^5+2^5+\ldots +n^5=\frac{n^6}{6}+\frac{n^5}{2}+\frac{5n^4}{12}-\frac{n^2}{12} \\
+&& 1^6+2^6+\ldots +n^6=\frac{n^7}{7}+\frac{n^6}{2}+\frac{n^5}{2}-\frac{n^3}{6}+\frac{n}{42} \\
+&& \mathrm{P}(k)=\frac{(n+1)^{k+1}-\sum_{i=0}^{k-1}\binom{k+1}{i}\mathrm{P}(i)}{k+1}, \mathrm{P}(0)=n\textbf{+1}
+\end{eqnarray*}
+\begin{eqnarray*}
+&& \sum_{k=1}^{n}k(k+1)=\frac{n(n+1)(n+2)}{3} \\
+&& \sum_{k=1}^{n}k(k+1)(k+2)=\frac{n(n+1)(n+2)(n+3)}{4} \\
+&& \sum_{k=1}^{n}k(k+1)(k+2)(k+3)=\frac{n(n+1)(n+2)(n+3)(n+4)}{5}
+\end{eqnarray*}
+\paragraph{$\blacksquare$ Power Reduction}
+$a^b\%p=a^{(b\% \varphi (p))+\varphi (p)}\% p \, (b \ge \varphi (p))$
+\paragraph{$\blacksquare$ Burnside's Lemma}
+\noindent
+\begin{displaymath}
+|X/G|=\frac{1}{|G|}\sum_{g\in G}|X^g|
+\end{displaymath}
+\begin{displaymath}
+\mathrm{Polya}: X^g=t^{c(g)}
+\end{displaymath}
+Let $X^g$ denote the set of elements in $X$ fixed by $g$. \\
+$c(g)$ is the number of cycles of the group element $g$ as a permutation of $X$.
+% \paragraph{$\blacksquare$ Lagrange Multiplier}
+% \noindent \\
+% A strategy for finding the local extrema of a function subject to equality constraints. \\
+% If we want to maximize $f(x_1,x_2,\ldots ,x_n)$, which subject to $\varphi(x_1,x_2,\ldots ,x_n)=0$. We introduce a new variable $\lambda$ called a Lagrange multiplier, and study the Lagrange function $L(x_1,x_2,\ldots ,x_n)=f(x_1,x_2,\ldots ,x_n)+\lambda \varphi(x_1,x_2,\ldots ,x_n)$.\\
+% Then we calculate $x_i$'s first partial derivatives of $L(x_1,x_2,\ldots ,x_n)$, and add the simultaneous equation $\varphi(x_1,x_2,\ldots ,x_n)=0$. We get these equations \\
+% \begin{displaymath}
+% \left\{ \begin{array}{ll}
+% \ldots \\
+% f_{x_i}(x_1,x_2,\ldots ,x_n)+\lambda \varphi _{x_i}(x_1,x_2,\ldots ,x_n)=0 \\
+% \ldots \\
+% \varphi (x_1,x_2,\ldots ,x_n)=0
+% \end{array} \right.
+% \end{displaymath}
+% Solve it to get all \textbf{probable} extrema points. \\
+% Also it can extend to multiple constraints. Just set multiple Lagrange multipliers $\lambda$, $\psi$, etc.
+\paragraph{$\blacksquare$ Lucas' Theorem}
+\noindent \\
+For non-negative integers $m$ and $n$ and a prime $p$, holds the equation \\
+\begin{displaymath}
+\binom{m}{n} \equiv \prod_{i=0}^k \binom{m_i}{n_i} \mod p
+\end{displaymath}
+where $m=m_kp^k+m_{k-1}p^{k-1}+\ldots +m_1p+m_0$, and $n=n_kp^k+n_{k-1}p^{k-1}+\ldots +n_1p+n_0$, are the base $p$ expansions of $m$ and $n$ respectively.
+\paragraph{$\blacksquare$ Wilson's Theorem}
+\noindent \\
+$p$ is a prime $\iff (p-1)! \equiv -1 \pmod{p}$.
+\paragraph{$\blacksquare$ Polynomial Congruence Equation}
+\noindent \\
+Solve the polynomial congruence equation $f(x)\equiv 0 \mod m$, $m=\prod_{i=1}^{k}p_i^{a_i}$. \\
+We just simply consider the equation $f(x)\equiv 0 \mod p^a$, then use the Chinese Remainder theorem to merge the result. \\
+If $x$ is the root of the equation $f(x)\equiv 0 \mod p^a$, then $x$ is also the root of $f(x)\equiv 0 \mod p^{a-1}$. \\
+$f'(x')\equiv 0 \mod p$ \textbf{and} $f(x')\equiv 0 \mod p^a \Rightarrow x=x'+dp^{a-1}(d=0,\ldots ,p-1)$ \\
+$f'(x')\not\equiv 0 \mod p \Rightarrow x=x'-\frac{f(x')}{f'(x')}$
+\paragraph{$\blacksquare$ Binomial Coefficients}
+\begin{eqnarray*}
+&& \mathrm{C}_{r}^{k}=\frac{r}{k}\mathrm{C}_{r-1}^{k-1}\qquad \qquad \: \: \: \mathrm{C}_{r}^{k}=\mathrm{C}_{r-1}^{k}+\mathrm{C}_{r-1}^{k-1} \\
+&& \mathrm{C}_{r}^{m}\mathrm{C}_{m}^{k}=\mathrm{C}_{r}^{k}\mathrm{C}_{r-k}^{m-k}\qquad \sum_{k\le n}\mathrm{C}_{r+k}^{k}=\mathrm{C}_{r+n+1}^{n} \\
+&& \sum_{0 \le k \le n}\mathrm{C}_{k}^{m}=\mathrm{C}_{n+1}^{m+1}\qquad \sum_{k}\mathrm{C}_{r}^{k}\mathrm{C}_{s}^{n-k}=\mathrm{C}_{r+s}^{n}
+\end{eqnarray*}
+The number of non-negative solutions to equation $x_1 + x_2 + x_3 + \ldots + x_k = n$ is $\binom{n+k-1}{k-1}$.
+\paragraph{$\blacksquare$ Probability Distribution}
+\begin{itemize}
+\item Binomial distribution:
+$\mathrm{Pr}[\mathit{X}=k]=\binom{n}{k}p^kq^{n-k}, p+q=1, \mathrm{E}[\mathit{X}]=np.$
+\item Poisson distribution:
+$\mathrm{Pr}[\mathit{X}=k]=\frac{e^{-\lambda }\lambda ^{k}}{k!}, \mathrm{E}[\mathit{X}]=\lambda .$
+\item Gaussian distribution:
+$p(x)=\frac{1}{\sigma \sqrt{2\pi }}e^{-(x-\mu)^2/2\sigma ^2}, \mathrm{E}[\mathit{X}]=\mu .$
+\item Geometric distribution:
+$\mathrm{Pr}[\mathit{X}=k]=pq^{k-1}, p+q=1, \mathrm{E}[\mathit{X}]=\frac{1}{p}.$
+\end{itemize}
+\paragraph{$\blacksquare$ Catalan Number}
+\noindent \\
+The number of sequences with $1$ of $m$ and $-1$ of $n$, and m$\ge n$, satifisying the constraint that any sum of the first $k$ elements is always non-negative: $\mathrm{C}_{m+n}^{m}-\mathrm{C}_{m+n}^{m+1}$. \\
+Specially, when $m=n$, it equals to $\mathrm{C}_{n}=\frac{\mathrm{C}_{2n}^{n}}{n+1}$, which is the Catalan number. \\
+The first 10 Catalan numbers are $1$, $2$, $5$, $14$, $42$, $132$, $429$, $1430$, $4862$, $16796$, from $n=1$, and $C_0=1$. \\
+Besides, $C_{n+1}=\sum_{i=0}^{n}C_{i}C_{n-i}$, for $n\ge 0$.
+\paragraph{$\blacksquare$ Stirling Number of $\mathrm{2^{nd}}$}
+\noindent \\
+The Stirling number of the second kind is the number of ways to partition a set of $n$ objects into $k$ non-empty subsets, denoted by $S(n,k)$. \\
+$S(n,k)=kS(n-1,k)+S(n-1,k-1)$, and $S(0,0)=1$, $S(n,0)=0$, $S(n,n)=1$.
+\paragraph{$\blacksquare$ Derangement Number}
+\noindent \\
+The number of permutations of n elements with no fixed points, denotes as $D_n$. \\
+$D_n=n!(1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\ldots +{(-1)}^n\frac{1}{n!})$, or $D_n=n*D_{n-1}+{(-1)}^n,D_n=(n-1)*(D_{n-1}+D_{n-2})$, with $D_1=1,D_2=1$.
+The first 10 derangement numbers are $0$, $1$, $2$, $9$, $44$, $265$, $1854$, $14833$, $133496$, $41334961$, from $n=1$.
+% \subsubsection{Integration}
+% \input{integration.tex}
+\subsection{Primes}
+\noindent
+$100003$, $200003$, $300007$, $400009$, $500009$, $600011$, $700001$, $800011$, $900001$, \\
+$1000003$, $2000003$, $3000017$, $4100011$, $5000011$, $8000009$, $9000011$, \\
+$10000019$, $20000003$, $50000017$, $50100007$, \\
+$100000007$, $100200011$, $200100007$, $250000019$
+% \subsection{Vimrc}
+% \begin{verbatim}
+% syntax on
+% set guifont=consolas:h10
+% set tabstop=4
+% set softtabstop=4
+% set shiftwidth=4
+% set autoindent
+% set smartindent
+% set cindent
+% set nu
+% map <F5> :!g++ % -o %< -g -Wall<CR>:!gdb %<<CR>
+% imap <F5> :!g++ % -o %< -g -Wall<CR>:!gdb %<<CR>
+% :com W w
+% \end{verbatim}
+\subsection{Makefile}
+\begin{verbatim}
+all : prog
+
+prog : prog.cpp
+    g++ -o prog -g prog.cpp -Wall
+\end{verbatim}
+\subsection{Java}
+\lstinputlisting[language=Java]{code/java.java}
+
+\end{document}
