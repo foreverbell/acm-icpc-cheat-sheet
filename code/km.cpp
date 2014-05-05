@@ -20,6 +20,7 @@ bool find(int x) {
 }
 
 int km() { // #define sm(p, f) memset((p), f, sizeof(p))
+	// maximum weight, if minimum, negate all g then restore at the end.
 	sm(lx, 0x80), sm(ly, 0), sm(match, 0);
 	for (int i = 1; i <= n; ++i) {
 		for (int j = 1; j <= m; ++j) lx[i] = max(lx[i], g[i][j]);
