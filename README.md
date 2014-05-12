@@ -2,4 +2,4 @@
 
 My own standard template library used in ACM-ICPC.
 
-Run `xelatex template.tex` **twice** to get the template.pdf.
+To get the target pdf file, run command `xelatex template.tex` **two times** to make sure the context is properly generated.
