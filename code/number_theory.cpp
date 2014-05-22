@@ -18,14 +18,15 @@ LL fpow(LL a, LL p, int mod) { // fast power-modulo algorithm
 }
 
 int exgcd(int x, int y, int &a, int &b) { // extended gcd, ax + by = g.
-	if (y == 0) {
-		a = 1, b = 0;
-		return x;
-	} else {
-		int aa = 0, bb = 0, g = exgcd(y, x % y, aa, bb);
-		a = bb, b = aa - (x / y) * bb;
-		return g;
+	int a0 = 1, a1 = 0, b0 = 0, b1 = 1;
+	while (y != 0) {
+		a0 -= x / y * a1; swap(a0, a1);
+		b0 -= x / y * b1; swap(b0, b1);
+		x %= y; swap(x, y);
 	}
+	if (x < 0) a0 = -a0, b0 = -b0, x = -x;
+	a = a0, b = b0;
+	return x;
 }
 
 int inverse(int x, int mod) { // multiplicative inverse.
