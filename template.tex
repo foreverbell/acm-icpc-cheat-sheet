@@ -74,23 +74,23 @@
 \subsection{Splay}
 \lstinputlisting{code/splay.cpp}
 \subsection{Dynamic Tree}
-\lstinputlisting{code/link_cut_tree.cpp}
+\lstinputlisting{code/link-cut-tree.cpp}
 \subsection{KD Tree}
-\lstinputlisting{code/k-dtree.cpp}
+\lstinputlisting{code/k-d-tree.cpp}
 \subsection{Treap}
 \lstinputlisting{code/treap.cpp}
 \subsection{President Treap}
-\lstinputlisting{code/president_treap.cpp}
+\lstinputlisting{code/president-treap.cpp}
 \section{String Algorithms}
 \subsection{Common}
-\lstinputlisting{code/string.cpp}
+\lstinputlisting{code/string-library.cpp}
 \subsection{Aho-Crosick Automaton}
-\lstinputlisting{code/ac_automaton.cpp}
+\lstinputlisting{code/aho-corasick-automaton.cpp}
 \subsection{Suffix Array}
-\lstinputlisting{code/suffix_array.cpp}
+\lstinputlisting{code/suffix-array.cpp}
 \section{Math}
 \subsection{Gauss Elimiation}
-\lstinputlisting{code/gauss_elimination.cpp}
+\lstinputlisting{code/gauss-elimination.cpp}
 \subsection{Matrix Multiplication}
 \lstinputlisting{code/matrix.cpp}
 Optimization of recursion matrix: \\
@@ -139,16 +139,16 @@ deg(v_i) & \textrm{if } i=j \\
 \end{displaymath}
 Then the number of spanning trees of a graph on $n$ vertices is the determinant of any $n-1$ submatrix of $L$.
 \subsection{Polynomial Root}
-\lstinputlisting{code/polynomial_root.cpp}
+\lstinputlisting{code/polynomial-root.cpp}
 \subsection{Number Theory Library}
-\lstinputlisting{code/number_theory.cpp}
+\lstinputlisting{code/number-library.cpp}
 \subsection{Number Partition} {
-\lstinputlisting{code/partition.cpp}
+\lstinputlisting{code/number-partition.cpp}
 \section{Computational Geometry}
-\subsection{Common}
-\lstinputlisting{code/computational_geometry/common.cpp}
+\subsection{Common 2D}
+\lstinputlisting{code/computational-geometry/common-2d.cpp}
 \subsection{Graham Convex Hull}
-\lstinputlisting{code/computational_geometry/graham_hull.cpp}
+\lstinputlisting{code/computational-geometry/convex-hull-2d.cpp}
 \subsection{Minkowski Sum of Convex Hull}
 \noindent
 Wiki: \\
@@ -158,28 +158,28 @@ A+B=\{ \vec{a} + \vec{b} \, | \, \vec{a} \in A, \vec{b} \in B \}.
 \end{displaymath}
 For all subsets $S_1$ and $S_2$ of a real vector-space, the convex hull of their Minkowski sum is the Minkowski sum of their convex hulls $\mathrm{Conv} (S_1 + S_2) = \mathrm{Conv} (S_1) + \mathrm{Conv} (S_2)$. \\
 Minkowski sums are used in motion planning of an object among obstacles. They are used for the computation of the configuration space, which is the set of all admissible positions of the object. In the simple model of translational motion of an object in the plane, where the position of an object may be uniquely specified by the position of a fixed point of this object, the configuration space are the Minkowski sum of the set of obstacles and the movable object placed at the origin and rotated $180$ degrees. \\
-\lstinputlisting{code/computational_geometry/minkowski_convex_hull.cpp}
+\lstinputlisting{code/computational-geometry/minkowski-convex-hull.cpp}
 \subsection{Rotating Calipers}
-\lstinputlisting{code/computational_geometry/rotating_caliper.cpp}
+\lstinputlisting{code/computational-geometry/rotating-caliper.cpp}
 \subsection{Closest Pair Points}
-\lstinputlisting{code/computational_geometry/closest_pair.cpp}
+\lstinputlisting{code/computational-geometry/closest-pair-points.cpp}
 \subsection{Halfplane Intersection}
-\lstinputlisting{code/computational_geometry/halfplane_intersection.cpp}
-\lstinputlisting{code/computational_geometry/halfplane_intersection_nlogn.cpp}
+\lstinputlisting{code/computational-geometry/halfplane-intersection.cpp}
+\lstinputlisting{code/computational-geometry/halfplane-intersection-nlogn.cpp}
 \subsection{Tri-Cir Intersection \& Tangent}
-\lstinputlisting{code/computational_geometry/circle_tangent.cpp}
-\lstinputlisting{code/computational_geometry/circle_intersection.cpp}
-\lstinputlisting{code/computational_geometry/triangle_circle_intersection.cpp}
-\subsection{Circle Union}
-\lstinputlisting{code/computational_geometry/circle_union.cpp}
+\lstinputlisting{code/computational-geometry/circle-tangent.cpp}
+\lstinputlisting{code/computational-geometry/circle-intersection.cpp}
+\lstinputlisting{code/computational-geometry/triangle-circle-area-intersection.cpp}
+\subsection{Circle Area Union}
+\lstinputlisting{code/computational-geometry/circle-area-union.cpp}
 \subsection{Minimum Covering Circle}
-\lstinputlisting{code/computational_geometry/minimum_circle.cpp}
-\subsection{Convex Polygon Union}
-\lstinputlisting{code/computational_geometry/poly_union.cpp}
+\lstinputlisting{code/computational-geometry/minimum-circle.cpp}
+\subsection{Convex Polygon Area Union}
+\lstinputlisting{code/computational-geometry/polygon-area-union.cpp}
 \subsection{3D Common}
-\lstinputlisting{code/computational_geometry/common3d.cpp}
+\lstinputlisting{code/computational-geometry/common-3d.cpp}
 \subsection{3D Convex Hull}
-\lstinputlisting{code/computational_geometry/hull3d.cpp}
+\lstinputlisting{code/computational-geometry/convex-hull-3d.cpp}
 \section{Graph}
 \subsection{Tarjan}
 \lstinputlisting{code/tarjan.cpp}
@@ -187,46 +187,46 @@ For bidirectional graph(cut vertex \& bridge): \\
 root: $u$ has $2$ or more children. \\
 others: exist a child $v$ satifsying $dfn[u] \le low[v]$. \\
 $(u, v)$ is bridge only if $dfn[u] < low[v]$ (trick: multiple edges).\\
-\subsection{Max Flow}
-\lstinputlisting{code/sap_maxflow.cpp}
+\subsection{Maximum Flow}
+\lstinputlisting{code/sap-maximum-flow.cpp}
 Notes on vertex covering and independent set on bipartite graph:\\
 Minimum Vertex Covering Set V': $\forall (u,v) \in E$, $u \in V'$ or $v \in V'$ holds. \\
 Maximum Vertex Independent Set V': $\forall u,v \in V'$, $(u,v) \notin E$ holds.\\
 Construct a flow graph $G$, run DFS from $s$ on reduction graph, the vertices not visited in left side and visited in right side form the minimum vertex covering set.\\
 Maximum vertex independent set vice versa.\\
-\subsection{Cost Flow}
-\lstinputlisting{code/cost_flow.cpp}
+\subsection{Minimum Cost, Maximum Flow}
+\lstinputlisting{code/minimum-cost-maximum-flow.cpp}
 \subsection{Kuhn Munkras}
-\lstinputlisting{code/km.cpp}
+\lstinputlisting{code/kuhn-munkras.cpp}
 \subsection{Hopcroft Karp}
-\lstinputlisting{code/hopcroft_karp.cpp}
+\lstinputlisting{code/hopcroft-karp.cpp}
 \subsection{Blossom Matching}
-\lstinputlisting{code/blossom_matching.cpp}
+\lstinputlisting{code/blossom-matching.cpp}
 \subsection{Stoer Wagner}
-\lstinputlisting{code/stoer_wagner.cpp}
+\lstinputlisting{code/stoer-wagner.cpp}
 \subsection{Arborescence}
 \lstinputlisting{code/arborescence.cpp}
 \subsection{Manhattan MST}
-\lstinputlisting{code/manhattan_mst.cpp}
+\lstinputlisting{code/manhattan-mst.cpp}
 \subsection{Minimum Mean Cycle}
-\lstinputlisting{code/mmc.cpp}
+\lstinputlisting{code/minimum-mean-cycle.cpp}
 \subsection{Divide and Conquer on Tree}
-\lstinputlisting{code/dac_on_tree.cpp}
+\lstinputlisting{code/divide-and-conquer-on-tree.cpp}
 \subsection{Dominator Tree}
 \noindent
 A dominator tree is a tree where each node's children are those nodes it immediately dominates. Because the immediate dominator is unique, it is a tree. The start node is the root of the tree.
-\lstinputlisting{code/dominator_tree.cpp}
+\lstinputlisting{code/dominator-tree.cpp}
 \section{Others}
-% \subsection{Big Number}
-% \lstinputlisting{code/big_number.cpp}
-\subsection{Expr Parsing}
-\lstinputlisting{code/expr_parse.cpp}
+% \subsection{High Precision Calculation}
+% \lstinputlisting{code/high-precision-calculation.cpp}
+\subsection{Expression Parsing}
+\lstinputlisting{code/expression-parse.cpp}
 \subsection{Steiner's Problem}
-\lstinputlisting{code/steiner.cpp}
+\lstinputlisting{code/steiner-problem.cpp}
 \subsection{LCA}
-\lstinputlisting{code/lca.cpp}
+\lstinputlisting{code/lowest-common-ancestor.cpp}
 \subsection{Dancing Links X}
-\lstinputlisting{code/dancing_links.cpp}
+\lstinputlisting{code/dancing-links-x.cpp}
 Find the minimum row set, satisfying each column has exactly one $1$. \\
 Let the row representing each choice, if some choices are mutually exclusive, add a column with these rows associated. \\
 Use the sudoku problem as an instance. There are $729$ choices($81$ squares can be filled in with $9$ numbers), $4$ constraints:\\
@@ -234,17 +234,17 @@ Use the sudoku problem as an instance. There are $729$ choices($81$ squares can 
 (2). Number $1$ to $9$ appears exactly once in each row, column, sub square. \\
 Thus we can construct a $729*324$ matrix, each $81$ columns representing each constraint.\\
 \subsection{Linar Programming}
-\lstinputlisting{code/simplex.cpp}
-\subsection{Simpson Integral}
-\lstinputlisting{code/simpson.cpp}
-\subsection{FFT}
-\lstinputlisting{code/fft.cpp}
-\subsection{NTT}
-\lstinputlisting{code/ntt.cpp}
-\subsection{Mo Dui Algorithm}
-\lstinputlisting{code/mo_algo.cpp}
+\lstinputlisting{code/simplex-linar-programming.cpp}
+\subsection{Simpson Integration}
+\lstinputlisting{code/simpson-integration.cpp}
+\subsection{Fast Fourier Transform}
+\lstinputlisting{code/fast-fourier-transform.cpp}
+\subsection{Number Theoretic Transform}
+\lstinputlisting{code/number-theoretic-transform.cpp}
+\subsection{Mo-Tao Algorithm}
+\lstinputlisting{code/motao-algorithm.cpp}
 \subsection{Cyclic LCS}
-\lstinputlisting{code/clcs.cpp}
+\lstinputlisting{code/cyclic-longest-common-subsequence.cpp}
 \section{Tips}
 \subsection{Useful Codes}
 \begin{itemize}
