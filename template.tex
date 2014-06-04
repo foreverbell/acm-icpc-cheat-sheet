@@ -31,7 +31,7 @@
 \pagestyle{fancy}
 \fancyhead[LE,RO]{\bfseries\thepage}
 \fancyhead[LO,RE]{\bfseries\leftmark}
-\fancyhead[C]{\bfseries ForeverBell}
+\fancyhead[C]{\bfseries foreverbell}
 \fancyfoot{}
 
 % \newfontfamily{\lsttype}{Liberation Mono}
@@ -65,7 +65,7 @@
 \begin{document}
 % \title{\LARGE Reference Document \& Code Library}
 % \date{}
-% \author{\textbf{ForeverBell}}
+% \author{\textbf{foreverbell}}
 % \maketitle
 \tableofcontents
 \newpage
@@ -81,6 +81,8 @@
 \lstinputlisting{code/treap.cpp}
 \subsection{President Treap}
 \lstinputlisting{code/president-treap.cpp}
+\subsection{President Segment Tree}
+\lstinputlisting{code/president-segment-tree.cpp}
 \section{String Algorithms}
 \subsection{Common}
 \lstinputlisting{code/string-library.cpp}
@@ -447,8 +449,8 @@ $S(n,k)=kS(n-1,k)+S(n-1,k-1)$, and $S(0,0)=1$, $S(n,0)=0$, $S(n,n)=1$.
 The number of permutations of n elements with no fixed points, denotes as $D_n$. \\
 $D_n=n!(1-\frac{1}{1!}+\frac{1}{2!}-\frac{1}{3!}+\ldots +{(-1)}^n\frac{1}{n!})$, or $D_n=n*D_{n-1}+{(-1)}^n,D_n=(n-1)*(D_{n-1}+D_{n-2})$, with $D_1=1,D_2=1$.
 The first 10 derangement numbers are $0$, $1$, $2$, $9$, $44$, $265$, $1854$, $14833$, $133496$, $41334961$, from $n=1$.
-% \subsubsection{Integration}
-% \input{integration.tex}
+\subsubsection{Integration}
+\input{integration.tex}
 \subsection{Primes}
 \noindent
 $100003$, $200003$, $300007$, $400009$, $500009$, $600011$, $700001$, $800011$, $900001$, \\
