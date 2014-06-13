@@ -91,8 +91,6 @@
 \subsection{Suffix Array}
 \lstinputlisting{code/suffix-array.cpp}
 \section{Math}
-\subsection{Gauss Elimiation}
-\lstinputlisting{code/gauss-elimination.cpp}
 \subsection{Matrix Multiplication}
 \lstinputlisting{code/matrix.cpp}
 Optimization of recursion matrix: \\
@@ -127,6 +125,8 @@ f(\lambda)=|\lambda \mathbf{E} - \mathbf{M}| =
 Apply Hamilton-Cayley theorem, we have $f(\mathbf{M})=\mathbf{0}$. \\
 And, $\forall i$, $\mathbf{M} ^ i$ can be written as a linear combination of $\mathbf{E}$,$\mathbf{M}$,$\mathbf{M} ^2$,$\ldots$,$\mathbf{M} ^ {k-1}$.\\
 So the matrix multiplication is reduced to polynomial multiplication, which can be computed in $O(n^2)$.
+\subsection{Gauss Elimiation}
+\lstinputlisting{code/gauss-elimination.cpp}
 \subsection{Determinant}
 \lstinputlisting{code/determinant.cpp}
 Laplacian matrix $L=(\ell_{i,j})_{n*n}$ is defined as: $L=D-A$, that is, it is the difference of the degree matrix $D$ and the adjacency matrix $A$ of the graph. \\

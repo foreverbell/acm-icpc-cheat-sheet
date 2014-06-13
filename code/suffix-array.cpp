@@ -1,7 +1,12 @@
 const int maxn = 100002, logn = 21, maxint = 0x7f7f7f7f;
 int n, sa[maxn], r[maxn], h[maxn], mv[maxn][logn];
-
-void construct(int n, int *s) { // remember to clear s before calling
+// r is `doubled`
+void initlg() {
+	_lg[1] = 0;
+	for (int i = 2; i < maxn; ++i) _lg[i] = _lg[i - 1] + ((i & (i - 1)) == 0 ? 1 : 0);
+}
+// remember to clear r & call initlg() before calling
+void construct(int n, int *s) { // initlg();
 	static pair<int/* Type */, int> ord[maxn];
 	for (int i = 1; i <= n; ++i) ord[i] = make_pair(s[i], i);
 	sort(ord + 1, ord + 1 + n);
@@ -9,23 +14,21 @@ void construct(int n, int *s) { // remember to clear s before calling
 		sa[i] = ord[i].second;
 		r[sa[i]] = (i == 1 ? 1 : r[sa[i - 1]] + (ord[i - 1].first != ord[i].first));
 	}
-	static int tr[2][maxn], tsa[maxn], c[maxn];
+	static int tr[maxn], tsa[maxn], c[maxn];
 	for (int l = 1; l < n; l <<= 1) {
-		for (int i = 1; i <= n; ++i) {
-			tr[0][i] = r[i], tr[1][i] = (i + l <= n ? r[i + l] : 0);
-		}
+		int cnt = 0;
+		for (int i = 1; i <= n; ++i) if (sa[i] + l > n) tsa[++cnt] = sa[i];
+		for (int i = 1; i <= n; ++i) if (sa[i] > l) tsa[++cnt] = sa[i] - l;
 		memset(c, 0, sizeof(c));
-		for (int i = 1; i <= n; ++i) ++c[tr[1][i]];
+		for (int i = 1; i <= n; ++i) ++c[r[i]];
 		for (int i = 1; i <= n; ++i) c[i] += c[i - 1];
-		for (int i = n; i >= 1; --i) tsa[c[tr[1][i]]--] = i;
-		memset(c, 0, sizeof(c));
-		for (int i = 1; i <= n; ++i) ++c[tr[0][i]];
-		for (int i = 1; i <= n; ++i) c[i] += c[i - 1];
-		for (int i = n; i >= 1; --i) sa[c[tr[0][tsa[i]]]--] = tsa[i];
-		r[sa[1]] = 1;
+		for (int i = n; i >= 1; --i) sa[c[r[tsa[i]]]--] = tsa[i];
+		tr[sa[1]] = 1;
 		for (int i = 2; i <= n; ++i) {
-			r[sa[i]] = r[sa[i - 1]] + (tr[0][sa[i]] != tr[0][sa[i - 1]] || tr[1][sa[i]] != tr[1][sa[i - 1]]);
+			tr[sa[i]] = tr[sa[i - 1]] + (r[sa[i]] != r[sa[i - 1]] || r[sa[i] + l] != r[sa[i - 1] + l]);
 		}
+		for (int i = 1; i <= n; ++i) r[i] = tr[i];
+		if (r[sa[n]] == n) break;
 	}
 	int k = 0; /* Height && RMQ */
 	for (int i = 1; i <= n; ++i) {
@@ -35,21 +38,15 @@ void construct(int n, int *s) { // remember to clear s before calling
 	}
 	for (int i = 1; i <= n; ++i) mv[i][0] = h[i];
 	for (int k = 1; k < logn; ++k) {
-		for (int i = 1; i + (1 << (k - 1)) <= n; ++i) {
-			mv[i][k] = min(mv[i][k - 1], mv[i + (1 << (k - 1))][k - 1]);
+		for (int i = 1, len = 1 << (k - 1); i + len <= n; ++i) {
+			mv[i][k] = min(mv[i][k - 1], mv[i + len][k - 1]);
 		}
 	}
 }
 
 int askRMQ(int l, int r) {
-	int res = maxint, len = r - l + 1;
-	for (int k = logn - 1; k >= 0; --k) {
-		if (len & (1 << k)) {
-			res = min(res, mv[l][k]);
-			l += (len & (1 << k));
-		}
-	}
-	return res;
+	int len = r - l + 1, log = _lg[r - l + 1];
+	return min(mv[l][log], mv[r - (1 << log) + 1][log]);
 }
 
 int LCP(int i, int j) {
