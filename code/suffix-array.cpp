@@ -1,5 +1,5 @@
 const int maxn = 100002, logn = 21, maxint = 0x7f7f7f7f;
-int n, sa[maxn], r[maxn], h[maxn], mv[maxn][logn];
+int n, sa[maxn], r[maxn + maxn], h[maxn], mv[maxn][logn];
 // r is `doubled`
 void initlg() {
 	_lg[1] = 0;
