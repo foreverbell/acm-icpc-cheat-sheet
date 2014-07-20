@@ -1,6 +1,6 @@
-all: template.tex
-	xelatex template.tex
-	xelatex template.tex
+all: main.tex
+	xelatex main.tex
+	xelatex main.tex
 
 clean:
 	rm -f *.log *.aux *.out *.pdf *.toc
