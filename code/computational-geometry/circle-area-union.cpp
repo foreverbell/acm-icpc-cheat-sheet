@@ -42,13 +42,6 @@ double calc(point_t c, double r, double a1, double a2) {
 	point_t p2 = point_t(cos(a2), sin(a2)) * r + c;
 	return cross(p1, p2) / 2 + aa;
 }
-double calc(point_t c, double r, double a1, double a2) {
-	double da = a2 - a1;
-	double aa = r * r * (da - sin(da)) / 2;
-	point_t p1 = point_t(cos(a1), sin(a1)) * r + c;
-	point_t p2 = point_t(cos(a2), sin(a2)) * r + c;
-	return cross(p1, p2) / 2 + aa;
-}
 
 void circle_union() {
 	for (int c = 1; c <= n; ++c) {
