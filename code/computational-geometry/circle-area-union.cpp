@@ -1,4 +1,5 @@
 /* Circle Union, O(n^2logn) sol */
+/* WARNING: You should ensure that no circles are coincided. */
 point_t center[maxn];
 double radius[maxn], cntarea[maxn];
 
