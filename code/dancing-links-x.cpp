@@ -1,14 +1,14 @@
 const int maxm = 325, maxk = 5001; 
-// Attention: maxk(Number of 1 + Column Size) ought NOT be very LARGE
+// maxk = number of 1 + number of columns, be carefully when memset
 int pt, L[maxk], R[maxk], U[maxk], D[maxk], C[maxk], A[maxk], O[maxm], S[maxm], res[maxk]; 
 
-void init(int m) { // m: Number of columns
-	zm(L), zm(R), zm(U), zm(D), zm(C), zm(A), zm(O), zm(S), pt = m;
+void init(int m) { // m: number of columns, #define ms memset
+	ms(L), ms(R), ms(U), ms(D), ms(C), ms(A), ms(O), ms(S), pt = m;
 	for (int i = 0; i <= m; ++i) L[i] = i - 1, R[i] = i + 1, C[i] = D[i] = U[i] = i;
 	L[0] = m, R[m] = 0;
 }
 
-void insert(int row, int *t, int total) { // t: Positions of 1
+void insert(int row, int *t, int total) { // t: positions of 1
 	for (int i = 1; i <= total; ++i) {
 		int col = t[i];
 		++S[col], ++pt;
@@ -40,7 +40,7 @@ void resume(int x) {
 	L[R[x]] = x, R[L[x]] = x;
 }
 
-bool dlx(int k) { // Call dlx(0)
+bool dlx(int k) {
 	if (R[0] == 0) {
 		for (int i = 0; i < k; ++i) res[i] = O[i];
 		return true;
@@ -61,3 +61,4 @@ bool dlx(int k) { // Call dlx(0)
 		return false;
 	}
 }
+// call dlx(0)

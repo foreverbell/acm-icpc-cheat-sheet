@@ -1,5 +1,4 @@
-/* Circle Union, O(n^2logn) sol */
-/* WARNING: You should ensure that no circles are coincided. */
+/* O(n^2logn), please remove coincided circles first. */
 point_t center[maxn];
 double radius[maxn], cntarea[maxn];
 
@@ -50,9 +49,9 @@ void circle_union() {
 		e.clear();
 		for (int i = 1; i <= n; ++i) {
 			if (i != c) {
-				int rel = testCC(center[c], center[i], radius[c], radius[i]);
-				if (rel == 2) ++cvrcnt;
-				else if (rel == 0) {
+				int r = testCC(center[c], center[i], radius[c], radius[i]);
+				if (r == 2) ++cvrcnt;
+				else if (r == 0) {
 					pair<double, double> paa = isCC(center[c], center[i], radius[c], radius[i]);
 					add(paa.first, paa.second);	
 				}
@@ -66,8 +65,7 @@ void circle_union() {
 			e.push_back(event_t(-pi, 1));
 			e.push_back(event_t(pi, -2));
 			sort(e.begin(), e.end());
-			int esz = e.size();
-			for (int i = 0; i < esz - 1; ++i) {
+			for (int i = 0; i < int(e.size()) - 1; ++i) {
 				cvrcnt += e[i].delta;
 				double a = calc(center[c], radius[c], e[i].theta, e[i + 1].theta);
 				cntarea[cvrcnt - 1] -= a;

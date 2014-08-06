@@ -88,7 +88,7 @@ bool prime_test(LL n) {
 	for (int i = 0; i < 12 && BASIC[i] < n; ++ i) {
 		if (!miller_rabin(n, BASIC[i])) return false;
 	}
-    return true;
+	return true;
 }
 
 LL pollard_rho(LL n, LL seed) { // pollard-rho divisors factorization

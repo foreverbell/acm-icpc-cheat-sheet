@@ -45,7 +45,7 @@ void exkmp(const char *s, const char *t, int *next, int *ex) {
 }
 
 // minimum representation of a string
-int min_rep(string s) {
+int minimum_representation(string s) {
 	s += s;
 	int l = s.length(), i = 0, j = 1, k = 0;
 	while (i + k < l && j + k < l) {

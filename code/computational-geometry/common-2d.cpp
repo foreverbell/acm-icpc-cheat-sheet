@@ -1,18 +1,4 @@
-﻿int dblcmp(double x) {
-	return (x < -eps ? -1 : x > eps);
-}
-
-double dist(point_t p1, point_t p2) {
-	return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
-}
-
-double cross(point_t p1, point_t p2) {
-	return p1.x * p2.y - p1.y * p2.x;
-}
-
-double dot(point_t p1, point_t p2) {
-	return p1.x * p2.x + p1.y * p2.y;
-}
+﻿// implementation of (dblcmp,dist,cross,dot) is trivial
 
 // count-clock wise is positive direction
 double angle(point_t p1, point_t p2) {
@@ -48,7 +34,7 @@ vector<point_t> isLL(point_t a, point_t b, point_t c, point_t d) {
 	vector<point_t> ret;
 	double a1 = p1.y, b1 = -p1.x, c1;
 	double a2 = p2.y, b2 = -p2.x, c2;
-	if (dblcmp(a1 * b2 - a2 * b1) == 0) return ret; // WARNING: colined <=> a1*c2-a2*c1=0 AND b1*c2-b2*c1=0
+	if (dblcmp(a1 * b2 - a2 * b1) == 0) return ret; // colined <=> a1*c2-a2*c1=0 && b1*c2-b2*c1=0
 	else {
 		c1 = a1 * a.x + b1 * a.y;
 		c2 = a2 * c.x + b2 * c.y;

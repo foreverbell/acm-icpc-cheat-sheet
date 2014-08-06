@@ -6,10 +6,10 @@ point_t p[maxn];
 
 void init() { // order reversed if right side
 	cnt = 4;
-	p[1].x = -maxd, p[1].y = -maxd;
-	p[2].x = maxd, p[2].y = -maxd;
-	p[3].x = maxd, p[3].y = maxd;
-	p[4].x = -maxd, p[4].y = maxd;
+	p[1] = point_t(-maxd, -maxd);
+	p[2] = point_t(maxd, -maxd);
+	p[3] = point_t(maxd, maxd);
+	p[4] = point_t(-maxd, maxd);
 }
 
 void cut(point_t p1, point_t p2) {
