@@ -92,7 +92,8 @@
 \section{Math}
 \subsection{Matrix Multiplication}
 \lstinputlisting{code/matrix.cpp}
-Optimization of recursion matrix: \\
+\paragraph{$\blacksquare$ Optimization of recursion matrix}
+\noindent \\
 $h_n=a_1h_{n-1}+a_2h_{n-2}+a_3h_{n-3}+ \ldots + a_kh_{n-k}$, Construct matrix of $k*k$:
 \begin{gather*}
 \mathbf{M} =
@@ -124,10 +125,8 @@ f(\lambda)=|\lambda \mathbf{E} - \mathbf{M}| =
 Apply Hamilton-Cayley theorem, we have $f(\mathbf{M})=\mathbf{0}$. \\
 And, $\forall i$, $\mathbf{M} ^ i$ can be written as a linear combination of $\mathbf{E}$,$\mathbf{M}$,$\mathbf{M} ^2$,$\ldots$,$\mathbf{M} ^ {k-1}$.\\
 So the matrix multiplication is reduced to polynomial multiplication, which can be computed in $O(n^2)$.
-\subsection{Gauss Elimiation}
-\lstinputlisting{code/gauss-elimination.cpp}
-\subsection{Determinant}
-\lstinputlisting{code/determinant.cpp}
+\paragraph{$\blacksquare$ Spanning tree count}
+\noindent \\
 Laplacian matrix $L=(\ell_{i,j})_{n*n}$ is defined as: $L=D-A$, that is, it is the difference of the degree matrix $D$ and the adjacency matrix $A$ of the graph. \\
 From the definition it follows that:
 \begin{displaymath}
@@ -139,6 +138,8 @@ deg(v_i) & \textrm{if } i=j \\
 \end{array} \right.
 \end{displaymath}
 Then the number of spanning trees of a graph on $n$ vertices is the determinant of any $n-1$ submatrix of $L$.
+\subsection{Gauss Elimiation}
+\lstinputlisting{code/gauss-elimination.cpp}
 \subsection{Polynomial Root}
 \lstinputlisting{code/polynomial-root.cpp}
 \subsection{Number Theory Library}
