@@ -1,5 +1,5 @@
 int n, bf[maxn][maxn], fcnt;
-point_t pt[maxn];
+point3_t pt[maxn];
 struct face_t {
 	int a, b, c;
 	bool vis;
