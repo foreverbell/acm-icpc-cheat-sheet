@@ -31,7 +31,7 @@ void pow(int k, LL p, int x[maxn], int r[maxn]) {
 	}
 }
 
-int solve(int k, int a[maxn], int f[maxn], LL n) {
+int solve(int k, int a[maxn], int f[maxn], LL n) { // use f[0]
 	copy(a + 1, a + 1 + k, b + 1);
 	reverse(b, b + 1 + k);
 	for (int i = 0; i < k; ++i) coef[1][i] = b[i];
