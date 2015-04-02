@@ -43,7 +43,7 @@ void init_inverse(int mod) { // O(n), all multiplicative inverse, mod is prime
 	}
 }
 
-LL CRT(int cnt, int *p, int *b) { // chinese remainder theorem
+LL crt(int k, int *p, int *b) { // chinese remainder theorem
 	LL N = 1, ans = 0;
 	for (int i = 0; i < k; ++i) N *= p[i];
 	for (int i = 0; i < k; ++i) {
@@ -55,15 +55,17 @@ LL CRT(int cnt, int *p, int *b) { // chinese remainder theorem
 	return ans;
 }
 
-void sieve(int n) { // generating primes using euler's sieve
-	notP[1] = 1;
+int sieve(int n, bool *isP, int *primes) { // generating primes using euler's sieve
+	fill(isP + 2, isP + 1 + n, true); isP[1] = false;
+	int pt = 0;
 	for (int i = 2; i <= n; ++i) {
-		if (!notP[i]) P[++Pt] = i;
-		for (int j = 1; j <= Pt && P[j] * i <= n; ++j) {
-			notP[P[j] * i] = 1;
-			if (i % P[j] == 0) break;
+		if (isP[i]) primes[pt++] = i;
+		for (int j = 0; j < pt && primes[j] * i <= n; ++j) {
+			isP[primes[j] * i] = false;
+			if (i % primes[j] == 0) break;
 		}
 	}
+	return pt;
 }
 
 bool miller_rabin(LL n, LL b) { // miller-rabin prime test
