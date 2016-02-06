@@ -17,7 +17,7 @@ LL fpow(LL a, LL p, int mod) { // fast power-modulo algorithm
 	return res;
 }
 
-int exgcd(int x, int y, int &a, int &b) { // extended gcd, ax + by = g.
+int exgcd(int x, int y, int &a, int &b) { // extended gcd, ax + by = g
 	int a0 = 1, a1 = 0, b0 = 0, b1 = 1;
 	while (y != 0) {
 		a0 -= x / y * a1; swap(a0, a1);
@@ -29,7 +29,7 @@ int exgcd(int x, int y, int &a, int &b) { // extended gcd, ax + by = g.
 	return x;
 }
 
-int inverse(int x, int mod) { // multiplicative inverse.
+int inverse(int x, int mod) { // multiplicative inverse
 	int a = 0, b = 0;
 	if (exgcd(x, mod, a, b) != 1) return -1;
 	return (a % mod + mod) % mod; // C1: x & mod are co-prime
@@ -75,7 +75,7 @@ bool miller_rabin(LL n, LL b) { // miller-rabin prime test
 	if (ret == 1 || ret == n - 1) return true;
 	--cnt;
 	while (cnt >= 0) {
-		ret = mult(ret, ret, n);
+		ret = mult(ret, ret, n); // mult64
 		if (ret == n - 1) return true;
 		--cnt;
 	}
@@ -85,7 +85,6 @@ bool miller_rabin(LL n, LL b) { // miller-rabin prime test
 bool prime_test(LL n) {
 	if (n < 2) return false;
 	if (n < 4) return true;
-	if (n == 3215031751LL) return false;
 	const int BASIC[12] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
 	for (int i = 0; i < 12 && BASIC[i] < n; ++ i) {
 		if (!miller_rabin(n, BASIC[i])) return false;
@@ -98,7 +97,7 @@ LL pollard_rho(LL n, LL seed) { // pollard-rho divisors factorization
 	x = y = rand() % (n - 1) + 1;
 	LL head = 1, tail = 2;
 	while (true) {
-		x = mult(x, x, n);
+		x = mult(x, x, n); // mult64
 		x = (x + seed) % n;
 		if (x == y) return n;
 		LL d = gcd(max(x - y, y - x), n);
