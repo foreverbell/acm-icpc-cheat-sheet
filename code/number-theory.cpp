@@ -171,33 +171,34 @@ int primtive_root(int p) {
 }
 
 int legendre(int n, int p) {
-  return fpow(n, (p - 1) / 2, p);
+	return fpow(n, (p - 1) / 2, p);
 }
 
-// a.k.a Tonelli–Shanks algorithm
+// a.k.a Tonelli_Shanks algorithm
 int ressol(int n, int p) {
-  n %= p;
-  if (legendre(n, p) != 1) return -1;
-  int q = p - 1, s = 0, z, c;
-  while (q % 2 == 0) q /= 2, ++s;
-  while (true) {
-    z = rand() % (p - 1) + 1;
-    if (legendre(z, p) == p - 1) break; 
-  }
-  c = fpow(z, q, p);
-  int r = fpow(n, (q + 1) / 2, p), t = fpow(n, q, p), m = s;
-  while (true) {
-    if (t == 1) return r;
-    for (int i = 0, tmp = t; i < m; ++i, tmp = 1ll * tmp * tmp % p) {
-      if (tmp == 1) {
-        int b = fpow(c, 1 << (m - i - 1), p);
-        c = 1ll * b * b % p;
-        r = 1ll * r * b % p;
-        t = 1ll * t * c % p;
-        m = i;
-        break;
-      }
-    }
-  }
-  return r;
+	n %= p;
+	if (n == 0) return 0;
+	if (legendre(n, p) != 1) return -1;
+	int q = p - 1, s = 0, z, c;
+	while (q % 2 == 0) q /= 2, ++s;
+	while (true) {
+		z = rand() % (p - 1) + 1;
+		if (legendre(z, p) == p - 1) break; 
+	}
+	c = fpow(z, q, p);
+	int r = fpow(n, (q + 1) / 2, p), t = fpow(n, q, p), m = s;
+	while (true) {
+		if (t == 1) return r;
+		for (int i = 0, tmp = t; i < m; ++i, tmp = 1ll * tmp * tmp % p) {
+			if (tmp == 1) {
+				int b = fpow(c, 1 << (m - i - 1), p);
+				c = 1ll * b * b % p;
+				r = 1ll * r * b % p;
+				t = 1ll * t * c % p;
+				m = i;
+				break;
+			}
+		}
+	}
+	return r;
 }
