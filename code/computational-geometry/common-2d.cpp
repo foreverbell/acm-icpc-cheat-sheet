@@ -1,4 +1,4 @@
-﻿// implementation of (dblcmp,dist,cross,dot) is trivial
+// implementation of (dblcmp,dist,cross,dot) is trivial
 
 // count-clock wise is positive direction
 double angle(point_t p1, point_t p2) {

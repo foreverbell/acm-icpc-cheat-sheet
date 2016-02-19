@@ -20,7 +20,7 @@ void cut(point_t p1, point_t p2) {
 		double v1 = cross(p2 - p1, p[i] - p1);
 		double v2 = cross(p2 - p1, p[i + 1] - p1);
 		if (dblcmp(v1) >= 0) tp[++tcnt] = p[i]; // <= if right side
-		if (dblcmp(v1) * dblcmp(v2) < 0) tp[++tcnt] = isLL(p1, p2, p[i], p[i + 1]);		
+		if (dblcmp(v1) * dblcmp(v2) < 0) tp[++tcnt] = isLL(p1, p2, p[i], p[i + 1]);
 	}
 	cnt = tcnt;
 	for (int i = 1; i <= cnt; ++i) p[i] = tp[i];

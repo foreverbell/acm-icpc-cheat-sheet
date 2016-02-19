@@ -1,4 +1,4 @@
-﻿int n, ec, ID[maxn], pre[maxn], in[maxn], vis[maxn];
+int n, ec, ID[maxn], pre[maxn], in[maxn], vis[maxn];
 struct edge_t {
 	int u, v, w;
 } edge[maxm];

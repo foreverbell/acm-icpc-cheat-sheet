@@ -53,7 +53,7 @@ void circle_union() {
 				if (r == 2) ++cvrcnt;
 				else if (r == 0) {
 					pair<double, double> paa = isCC(center[c], center[i], radius[c], radius[i]);
-					add(paa.first, paa.second);	
+					add(paa.first, paa.second);
 				}
 			}
 		}
