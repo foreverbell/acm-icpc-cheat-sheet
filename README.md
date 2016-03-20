@@ -1,5 +1,5 @@
 # acm-icpc-cheat-sheet
 
-My code library (a.k.a. reference document) used in ACM-ICPC.
+## Disclaimer
 
-Execute command `make` to generate the target pdf file.
+Use it at your own risk!
