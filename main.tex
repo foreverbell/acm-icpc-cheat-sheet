@@ -71,27 +71,29 @@
 
 \section{Data Structure}
 \subsection{Splay}
-\lstinputlisting{code/splay.cpp}
+\lstinputlisting{src/data-structure/splay.cpp}
 \subsection{Dynamic Tree}
-\lstinputlisting{code/link-cut-tree.cpp}
+\lstinputlisting{src/data-structure/link-cut-tree.cpp}
 \subsection{KD Tree}
-\lstinputlisting{code/k-d-tree.cpp}
+\lstinputlisting{src/data-structure/kd-tree.cpp}
 \subsection{Treap}
-\lstinputlisting{code/treap.cpp}
+\lstinputlisting{src/data-structure/treap.cpp}
 \subsection{President Treap}
-\lstinputlisting{code/president-treap.cpp}
+\lstinputlisting{src/data-structure//president-treap.cpp}
 \subsection{President Segment Tree}
-\lstinputlisting{code/president-segment-tree.cpp}
+\lstinputlisting{src/data-structure/president-segment-tree.cpp}
 \section{String Algorithms}
 \subsection{Common}
-\lstinputlisting{code/string-library.cpp}
+\lstinputlisting{src/string-algorithm/kmp.cpp}
+\lstinputlisting{src/string-algorithm/minimum-representation.cpp}
+\lstinputlisting{src/string-algorithm/manacher.cpp}
 \subsection{Aho-Crosick Automaton}
-\lstinputlisting{code/aho-corasick-automaton.cpp}
+\lstinputlisting{src/string-algorithm/aho-corasick-automaton.cpp}
 \subsection{Suffix Array}
-\lstinputlisting{code/suffix-array.cpp}
+\lstinputlisting{src/string-algorithm/suffix-array.cpp}
 \section{Math}
 \subsection{Matrix Multiplication}
-\lstinputlisting{code/matrix.cpp}
+\lstinputlisting{src/math/matrix.cpp}
 \paragraph{$\blacksquare$ Optimization of recursion matrix}
 \noindent \\
 $h_n=a_1h_{n-1}+a_2h_{n-2}+a_3h_{n-3}+ \ldots + a_kh_{n-k}$, Construct matrix of $k*k$:
@@ -125,7 +127,7 @@ f(\lambda)=|\lambda \mathbf{E} - \mathbf{M}| =
 Apply Hamilton-Cayley theorem, we have $f(\mathbf{M})=\mathbf{0}$. \\
 And, $\forall i$, $\mathbf{M} ^ i$ can be written as a linear combination of $\mathbf{E}$,$\mathbf{M}$,$\mathbf{M} ^2$,$\ldots$,$\mathbf{M} ^ {k-1}$.\\
 So the matrix multiplication is reduced to polynomial multiplication, which can be computed in $O(n^2)$. \\
-\lstinputlisting{code/linear-recurrence-sequence.cpp}
+\lstinputlisting{src/math/linear-recurrence-sequence.cpp}
 \paragraph{$\blacksquare$ Spanning tree count}
 \noindent \\
 Laplacian matrix $L=(\ell_{i,j})_{n*n}$ is defined as: $L=D-A$, that is, it is the difference of the degree matrix $D$ and the adjacency matrix $A$ of the graph. \\
@@ -140,18 +142,27 @@ deg(v_i) & \textrm{if } i=j \\
 \end{displaymath}
 Then the number of spanning trees of a graph on $n$ vertices is the determinant of any $n-1$ submatrix of $L$.
 \subsection{Gauss Elimiation}
-\lstinputlisting{code/gauss-elimination.cpp}
+\lstinputlisting{src/math/gauss-elimination.cpp}
 \subsection{Polynomial Root}
-\lstinputlisting{code/polynomial-root.cpp}
-\subsection{Number Theory}
-\lstinputlisting{code/number-theory.cpp}
+\lstinputlisting{src/math/polynomial-root.cpp}
+\subsection{Number Theory Library}
+\lstinputlisting{src/math/number-theory.cpp}
 \subsection{Number Partition} {
-\lstinputlisting{code/number-partition.cpp}
+\lstinputlisting{src/math/number-partition.cpp}
+\subsection{Linear Programming}
+\lstinputlisting{src/math/simplex-linear-programming.cpp}
+\subsection{Simpson Integration}
+\lstinputlisting{src/math/simpson-integration.cpp}
+\subsection{Fast Fourier Transform}
+\lstinputlisting{src/math/fast-fourier-transform.cpp}
+\subsection{Number Theoretic Transform}
+\lstinputlisting{src/math/number-theoretic-transform.cpp}
+
 \section{Computational Geometry}
 \subsection{Common 2D}
-\lstinputlisting{code/computational-geometry/common-2d.cpp}
+\lstinputlisting{src/computational-geometry/common-2d.cpp}
 \subsection{Graham Convex Hull}
-\lstinputlisting{code/computational-geometry/convex-hull-2d.cpp}
+\lstinputlisting{src/computational-geometry/convex-hull-2d.cpp}
 \subsection{Minkowski Sum of Convex Hull}
 \noindent
 Wiki: \\
@@ -161,97 +172,89 @@ A+B=\{ \vec{a} + \vec{b} \, | \, \vec{a} \in A, \vec{b} \in B \}.
 \end{displaymath}
 For all subsets $S_1$ and $S_2$ of a real vector-space, the convex hull of their Minkowski sum is the Minkowski sum of their convex hulls $\mathrm{Conv} (S_1 + S_2) = \mathrm{Conv} (S_1) + \mathrm{Conv} (S_2)$. \\
 Minkowski sums are used in motion planning of an object among obstacles. They are used for the computation of the configuration space, which is the set of all admissible positions of the object. In the simple model of translational motion of an object in the plane, where the position of an object may be uniquely specified by the position of a fixed point of this object, the configuration space are the Minkowski sum of the set of obstacles and the movable object placed at the origin and rotated $180$ degrees. \\
-\lstinputlisting{code/computational-geometry/minkowski-convex-hull.cpp}
+\lstinputlisting{src/computational-geometry/minkowski-convex-hull.cpp}
 \subsection{Rotating Calipers}
-\lstinputlisting{code/computational-geometry/rotating-caliper.cpp}
+\lstinputlisting{src/computational-geometry/rotating-caliper.cpp}
 \subsection{Closest Pair Points}
-\lstinputlisting{code/computational-geometry/closest-pair-points.cpp}
+\lstinputlisting{src/computational-geometry/closest-pair-points.cpp}
 \subsection{Halfplane Intersection}
-\lstinputlisting{code/computational-geometry/halfplane-intersection.cpp}
-\lstinputlisting{code/computational-geometry/halfplane-intersection-nlogn.cpp}
-\subsection{Triangle \& Circle Intersection \& Tangent}
-\lstinputlisting{code/computational-geometry/circle-tangent.cpp}
-\lstinputlisting{code/computational-geometry/circle-intersection.cpp}
-\lstinputlisting{code/computational-geometry/triangle-circle-area-intersection.cpp}
+\lstinputlisting{src/computational-geometry/halfplane-intersection.cpp}
+\lstinputlisting{src/computational-geometry/halfplane-intersection-nlogn.cpp}
+\subsection{Tri-Cir Intersection \& Tangent}
+\lstinputlisting{src/computational-geometry/circle-tangent.cpp}
+\lstinputlisting{src/computational-geometry/circle-intersection.cpp}
+\lstinputlisting{src/computational-geometry/triangle-circle-area-intersection.cpp}
 \subsection{Circle Area Union}
-\lstinputlisting{code/computational-geometry/circle-area-union.cpp}
+\lstinputlisting{src/computational-geometry/circle-area-union.cpp}
 \subsection{Minimum Covering Circle}
-\lstinputlisting{code/computational-geometry/minimum-circle.cpp}
+\lstinputlisting{src/computational-geometry/minimum-circle.cpp}
 \subsection{Convex Polygon Area Union}
-\lstinputlisting{code/computational-geometry/polygon-area-union.cpp}
+\lstinputlisting{src/computational-geometry/polygon-area-union.cpp}
 \subsection{3D Common}
-\lstinputlisting{code/computational-geometry/common-3d.cpp}
+\lstinputlisting{src/computational-geometry/common-3d.cpp}
 \subsection{3D Convex Hull}
-\lstinputlisting{code/computational-geometry/convex-hull-3d.cpp}
+\lstinputlisting{src/computational-geometry/convex-hull-3d.cpp}
 \subsection{Quaternion}
-\lstinputlisting{code/computational-geometry/quaternion.cpp}
+\lstinputlisting{src/computational-geometry/quaternion.cpp}
 \section{Graph}
 \subsection{Tarjan}
-\lstinputlisting{code/tarjan.cpp}
+\lstinputlisting{src/graph-algorithm/tarjan.cpp}
 For bidirectional graph(cut vertex \& bridge): \\
 root: $u$ has $2$ or more children. \\
 others: exist a child $v$ satifsying $dfn[u] \le low[v]$. \\
 $(u, v)$ is bridge only if $dfn[u] < low[v]$ (trick: multiple edges).\\
 \subsection{Maximum Flow}
-\lstinputlisting{code/sap-maximum-flow.cpp}
+\lstinputlisting{src/graph-algorithm/maximum-flow.cpp}
 Notes on vertex covering and independent set on bipartite graph:\\
 Minimum Vertex Covering Set V': $\forall (u,v) \in E$, $u \in V'$ or $v \in V'$ holds. \\
 Maximum Vertex Independent Set V': $\forall u,v \in V'$, $(u,v) \notin E$ holds.\\
 Construct a flow graph $G$, run DFS from $s$ on reduction graph, the vertices not visited in left side and visited in right side form the minimum vertex covering set.\\
 Maximum vertex independent set vice versa.\\
 \subsection{Minimum Cost, Maximum Flow}
-\lstinputlisting{code/minimum-cost-maximum-flow.cpp}
+\lstinputlisting{src/graph-algorithm/minimum-cost-maximum-flow.cpp}
 \subsection{Kuhn Munkras}
-\lstinputlisting{code/kuhn-munkras.cpp}
+\lstinputlisting{src/graph-algorithm/kuhn-munkras.cpp}
 \subsection{Hopcroft Karp}
-\lstinputlisting{code/hopcroft-karp.cpp}
+\lstinputlisting{src/graph-algorithm/hopcroft-karp.cpp}
 \subsection{Blossom Matching}
-\lstinputlisting{code/blossom-matching.cpp}
+\lstinputlisting{src/graph-algorithm/blossom-matching.cpp}
 \subsection{Stoer Wagner}
-\lstinputlisting{code/stoer-wagner.cpp}
+\lstinputlisting{src/graph-algorithm/stoer-wagner.cpp}
 \subsection{Arborescence}
-\lstinputlisting{code/arborescence.cpp}
+\lstinputlisting{src/graph-algorithm/arborescence.cpp}
 \subsection{Manhattan MST}
-\lstinputlisting{code/manhattan-mst.cpp}
+\lstinputlisting{src/graph-algorithm/manhattan-mst.cpp}
 \subsection{Minimum Mean Cycle}
-\lstinputlisting{code/minimum-mean-cycle.cpp}
-\subsection{Divide and Conquer on Tree}
-\lstinputlisting{code/divide-and-conquer-on-tree.cpp}
+\lstinputlisting{src/graph-algorithm/minimum-mean-cycle.cpp}
 \subsection{Dominator Tree}
 \noindent
 A dominator tree is a tree where each node's children are those nodes it immediately dominates. Because the immediate dominator is unique, it is a tree. The start node is the root of the tree.
-\lstinputlisting{code/dominator-tree.cpp}
+\lstinputlisting{src/graph-algorithm/dominator-tree.cpp}
 \section{Miscellaneous}
 % \subsection{High Precision Calculation}
-% \lstinputlisting{code/high-precision-calculation.cpp}
-\subsection{Expression Parsing}
-\lstinputlisting{code/expression-parse.cpp}
+% \lstinputlisting{src/high-precision-calculation.cpp}
+\subsection{Parser}
+\lstinputlisting{src/misc/parser.cpp}
 \subsection{Steiner's Problem}
-\lstinputlisting{code/steiner-problem.cpp}
+\lstinputlisting{src/misc/steiner-problem.cpp}
 \subsection{AlphaBeta}
-\lstinputlisting{code/alphabeta.cpp}
+\lstinputlisting{src/misc/alphabeta.cpp}
 \subsection{LCA}
-\lstinputlisting{code/lowest-common-ancestor.cpp}
+\lstinputlisting{src/misc/lowest-common-ancestor.cpp}
+\subsection{Divide and Conquer on Tree}
+\lstinputlisting{src/misc/divide-and-conquer-on-tree.cpp}
 \subsection{Dancing Links X}
-\lstinputlisting{code/dancing-links-x.cpp}
+\lstinputlisting{src/misc/dancing-links-x.cpp}
 Find the minimum row set, satisfying each column has exactly one $1$. \\
 Let the row representing each choice, if some choices are mutually exclusive, add a column with these rows associated. \\
 Use the sudoku problem as an instance. There are $729$ choices($81$ squares can be filled in with $9$ numbers), $4$ constraints:\\
 (1). Each box has exactly one number; \\
 (2). Number $1$ to $9$ appears exactly once in each row, column, sub square. \\
 Thus we can construct a $729*324$ matrix, each $81$ columns representing each constraint.\\
-\subsection{Linear Programming}
-\lstinputlisting{code/simplex-linear-programming.cpp}
-\subsection{Simpson Integration}
-\lstinputlisting{code/simpson-integration.cpp}
-\subsection{Fast Fourier Transform}
-\lstinputlisting{code/fast-fourier-transform.cpp}
-\subsection{Number Theoretic Transform}
-\lstinputlisting{code/number-theoretic-transform.cpp}
 \subsection{Mo-Tao Algorithm}
-\lstinputlisting{code/motao-algorithm.cpp}
+\lstinputlisting{src/misc/motao-algorithm.cpp}
 \subsection{Cyclic LCS}
-\lstinputlisting{code/cyclic-longest-common-subsequence.cpp}
+\lstinputlisting{src/misc/cyclic-longest-common-subsequence.cpp}
 \section{Tips}
 \subsection{Snippets \& Black Magic}
 \begin{itemize}
@@ -279,8 +282,22 @@ int days(int y, int m, int d) {
 	return 365 * y + y / 4 - y / 100 + y / 400 + (153 * m + 2) / 5 + d;
 }
 \end{lstlisting}
+\item Calculate $\lfloor f(n/d) \rfloor$, $d=1, 2, \ldots, n$.
+\begin{lstlisting}[frame=none]
+void iterate(int n) { // calc sum f(n/d), d<-[1..n]
+  int root = sqrt(double(n)), to = n;
+  for (int d = 1; d <= root; ++d) {
+    int l = n / (d + 1), r = n / d;
+    // (r - l) * f(d)
+    to = min(to, l);
+  }
+  for (int d = 1; d <= to; ++d) {
+    // accumlate single f(n / d)
+  }
+}
+\end{lstlisting}
 \item pb-ds
-\lstinputlisting[frame=none]{code/pb-ds.cpp}
+\lstinputlisting[frame=none]{src/pb-ds.cpp}
 \end{itemize}
 \subsection{Formulas}
 \subsubsection{Geometry}
@@ -470,7 +487,27 @@ $100003$, $200003$, $300007$, $400009$, $500009$, $600011$, $700001$, $800011$, 
 $1000003$, $2000003$, $3000017$, $4100011$, $5000011$, $8000009$, $9000011$, \\
 $10000019$, $20000003$, $50000017$, $50100007$, \\
 $100000007$, $100200011$, $200100007$, $250000019$
-\subsection{Java Fast IO}
-\lstinputlisting[language=Java]{code/java.java}
+% \subsection{Vimrc}
+% \begin{verbatim}
+% syntax on
+% set guifont=consolas:h10
+% set tabstop=4
+% set softtabstop=4
+% set shiftwidth=4
+% set autoindent
+% set smartindent
+% set cindent
+% set nu
+% map <F5> :!g++ % -o %< -g -Wall<CR>:!gdb %<<CR>
+% imap <F5> :!g++ % -o %< -g -Wall<CR>:!gdb %<<CR>
+% :com W w
+% \end{verbatim}
+% \subsection{Makefile}
+% \begin{verbatim}
+% all : prog
+
+% prog : prog.cpp
+%	g++ -o prog -g prog.cpp -Wall
+% \end{verbatim}
 
 \end{document}
