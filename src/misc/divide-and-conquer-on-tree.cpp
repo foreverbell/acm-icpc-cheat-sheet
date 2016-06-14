@@ -1,5 +1,5 @@
-int bk, size[maxn], parent[maxn], ver[maxn];
-bool cut[maxn];
+int bk, size[maxN], parent[maxN], ver[maxN];
+bool cut[maxN];
 
 void bfs(int r) { // bfs in each sub-tree
   parent[r] = 0, bk = 0; // maintain root extra information

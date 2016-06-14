@@ -9,7 +9,7 @@ struct node_t {
   }
   node_t *p, *ch[2];
   int size, cnt; // maintain tag from top to bottom (via find).
-} s[maxn], *nil = s, *root;
+} s[maxN], *nil = s, *root;
 
 node_t::node_t() {
   p = ch[0] = ch[1] = nil;

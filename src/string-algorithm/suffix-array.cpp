@@ -19,7 +19,7 @@ void construct(int n, int *s) { // initlg();
     int cnt = 0;
     for (int i = 1; i <= n; ++i) if (sa[i] + l > n) tsa[++cnt] = sa[i];
     for (int i = 1; i <= n; ++i) if (sa[i] > l) tsa[++cnt] = sa[i] - l;
-    memset(c, 0, sizeof(c));
+    mset0(c);
     for (int i = 1; i <= n; ++i) ++c[r[i]];
     for (int i = 1; i <= n; ++i) c[i] += c[i - 1];
     for (int i = n; i >= 1; --i) sa[c[r[tsa[i]]]--] = tsa[i];
@@ -37,7 +37,7 @@ void construct(int n, int *s) { // initlg();
     h[r[i]] = k;
   }
   for (int i = 1; i <= n; ++i) mv[i][0] = h[i];
-  for (int k = 1; k < logn; ++k) {
+  for (int k = 1; k < logN; ++k) {
     for (int i = 1, len = 1 << (k - 1); i + len <= n; ++i) {
       mv[i][k] = min(mv[i][k - 1], mv[i + len][k - 1]);
     }

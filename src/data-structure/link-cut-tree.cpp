@@ -5,7 +5,7 @@ struct node_t {
   int dir() { return this == p->ch[1]; }
   void setc(node_t *c, int d) { ch[d] = c, c->p = this; }
   void update() { size = ch[0]->size + ch[1]->size + 1; }
-} s[maxn], *nil = s;
+} s[maxN], *nil = s;
 
 node_t::node_t() {
   size = 1, root = true;

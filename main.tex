@@ -82,8 +82,9 @@
 \lstinputlisting{src/data-structure//president-treap.cpp}
 \subsection{President Segment Tree}
 \lstinputlisting{src/data-structure/president-segment-tree.cpp}
+
 \section{String Algorithms}
-\subsection{Common}
+\subsection{Base}
 \lstinputlisting{src/string-algorithm/kmp.cpp}
 \lstinputlisting{src/string-algorithm/minimum-representation.cpp}
 \lstinputlisting{src/string-algorithm/manacher.cpp}
@@ -91,7 +92,17 @@
 \lstinputlisting{src/string-algorithm/aho-corasick-automaton.cpp}
 \subsection{Suffix Array}
 \lstinputlisting{src/string-algorithm/suffix-array.cpp}
+
 \section{Math}
+\subsection{Number Theory}
+\lstinputlisting{src/math/number-theory/base.cpp}
+\lstinputlisting{src/math/number-theory/inverse.cpp}
+\lstinputlisting{src/math/number-theory/crt.cpp}
+\lstinputlisting{src/math/number-theory/prime.cpp}
+\lstinputlisting{src/math/number-theory/factorize.cpp}
+\lstinputlisting{src/math/number-theory/discrete-logarithm.cpp}
+\lstinputlisting{src/math/number-theory/primitive-root.cpp}
+\lstinputlisting{src/math/number-theory/ressol.cpp}
 \subsection{Matrix Multiplication}
 \lstinputlisting{src/math/matrix.cpp}
 \paragraph{$\blacksquare$ Optimization of recursion matrix}
@@ -145,11 +156,9 @@ Then the number of spanning trees of a graph on $n$ vertices is the determinant 
 \lstinputlisting{src/math/gauss-elimination.cpp}
 \subsection{Polynomial Root}
 \lstinputlisting{src/math/polynomial-root.cpp}
-\subsection{Number Theory Library}
-\lstinputlisting{src/math/number-theory.cpp}
-\subsection{Number Partition} {
+\subsection{Number Partition}
 \lstinputlisting{src/math/number-partition.cpp}
-\subsection{Linear Programming}
+\subsection{Simplex Linear Programming}
 \lstinputlisting{src/math/simplex-linear-programming.cpp}
 \subsection{Simpson Integration}
 \lstinputlisting{src/math/simpson-integration.cpp}
@@ -159,8 +168,8 @@ Then the number of spanning trees of a graph on $n$ vertices is the determinant 
 \lstinputlisting{src/math/number-theoretic-transform.cpp}
 
 \section{Computational Geometry}
-\subsection{Common 2D}
-\lstinputlisting{src/computational-geometry/common-2d.cpp}
+\subsection{2D Base}
+\lstinputlisting{src/computational-geometry/2d-base.cpp}
 \subsection{Graham Convex Hull}
 \lstinputlisting{src/computational-geometry/convex-hull-2d.cpp}
 \subsection{Minkowski Sum of Convex Hull}
@@ -190,12 +199,13 @@ Minkowski sums are used in motion planning of an object among obstacles. They ar
 \lstinputlisting{src/computational-geometry/minimum-circle.cpp}
 \subsection{Convex Polygon Area Union}
 \lstinputlisting{src/computational-geometry/polygon-area-union.cpp}
-\subsection{3D Common}
-\lstinputlisting{src/computational-geometry/common-3d.cpp}
+\subsection{3D Base}
+\lstinputlisting{src/computational-geometry/3d-base.cpp}
 \subsection{3D Convex Hull}
 \lstinputlisting{src/computational-geometry/convex-hull-3d.cpp}
 \subsection{Quaternion}
 \lstinputlisting{src/computational-geometry/quaternion.cpp}
+
 \section{Graph}
 \subsection{Tarjan}
 \lstinputlisting{src/graph-algorithm/tarjan.cpp}
@@ -230,6 +240,7 @@ Maximum vertex independent set vice versa.\\
 \noindent
 A dominator tree is a tree where each node's children are those nodes it immediately dominates. Because the immediate dominator is unique, it is a tree. The start node is the root of the tree.
 \lstinputlisting{src/graph-algorithm/dominator-tree.cpp}
+
 \section{Miscellaneous}
 % \subsection{High Precision Calculation}
 % \lstinputlisting{src/high-precision-calculation.cpp}
@@ -255,6 +266,7 @@ Thus we can construct a $729*324$ matrix, each $81$ columns representing each co
 \lstinputlisting{src/misc/motao-algorithm.cpp}
 \subsection{Cyclic LCS}
 \lstinputlisting{src/misc/cyclic-longest-common-subsequence.cpp}
+
 \section{Tips}
 \subsection{Snippets \& Black Magic}
 \begin{itemize}
@@ -321,8 +333,6 @@ $S$ is the area of lattice polygon, $I$ is the number of lattice interior points
 \item Pyramid $V=\frac{1}{3}Sh$.
 \item Sphere $V=\frac{4}{3}\pi R^3$.
 \item Frustum $V=\frac{1}{3}h(S_1+\sqrt {S_1S_2}+S_2)$.
-% \item Ellipsoid \\
-% For ellipsoid with the standard equation in a Cartesian coordinate system $\frac{(x-x_0)^2}{a^2}+\frac{(y-y_0)^2}{b^2}+\frac{(z-z_0)^2}{c^2}=1$, $V=\frac{4}{3} \pi abc$.
 \item Ellipsoid $V=\frac{4}{3} \pi abc$.
 \item Tetrahedron \\
 For tetrahedron $O-ABC$, let $a=AB,b=BC,c=CA,d=OC,e=OA,f=OB$, ${(12V)}^2=a^2d^2(b^2+c^2+e^2+f^2-a^2-d^2)+b^2e^2(c^2+a^2+f^2+d^2-b^2-e^2)+c^2f^2(a^2+b^2+d^2+e^2-c^2-f^2)-a^2b^2c^2-a^2e^2f^2-d^2b^2f^2-d^2e^2c^2$.
@@ -423,7 +433,7 @@ $c(g)$ is the number of cycles of the group element $g$ as a permutation of $X$.
 % \end{displaymath}
 % Solve it to get all \textbf{probable} extrema points. \\
 % Also it can extend to multiple constraints. Just set multiple Lagrange multipliers $\lambda$, $\psi$, etc.
-\paragraph{$\blacksquare$ Lucas' Theorem}
+\paragraph{$\blacksquare$ Lucas's Theorem}
 \noindent \\
 For non-negative integers $m$ and $n$ and a prime $p$, holds the equation \\
 \begin{displaymath}
@@ -487,27 +497,5 @@ $100003$, $200003$, $300007$, $400009$, $500009$, $600011$, $700001$, $800011$, 
 $1000003$, $2000003$, $3000017$, $4100011$, $5000011$, $8000009$, $9000011$, \\
 $10000019$, $20000003$, $50000017$, $50100007$, \\
 $100000007$, $100200011$, $200100007$, $250000019$
-% \subsection{Vimrc}
-% \begin{verbatim}
-% syntax on
-% set guifont=consolas:h10
-% set tabstop=4
-% set softtabstop=4
-% set shiftwidth=4
-% set autoindent
-% set smartindent
-% set cindent
-% set nu
-% map <F5> :!g++ % -o %< -g -Wall<CR>:!gdb %<<CR>
-% imap <F5> :!g++ % -o %< -g -Wall<CR>:!gdb %<<CR>
-% :com W w
-% \end{verbatim}
-% \subsection{Makefile}
-% \begin{verbatim}
-% all : prog
-
-% prog : prog.cpp
-%	g++ -o prog -g prog.cpp -Wall
-% \end{verbatim}
 
 \end{document}

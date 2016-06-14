@@ -3,7 +3,7 @@ bool cmp(const point_t p1, const point_t p2) {
 }
 
 int graham(point_t *p) { // Points co-lined are ignored.
-  int top = 2; static point_t sk[maxn];
+  int top = 2; static point_t sk[maxN];
   sort(p + 1, p + 1 + n, cmp); 
   sk[1] = p[1], sk[2] = p[2];
   for (int i = 3; i <= n; ++i) {

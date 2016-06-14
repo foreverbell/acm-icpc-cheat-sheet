@@ -11,7 +11,7 @@ double dac(point_t *p, int l, int r) {
     int mid = (l + r) / 2;
     d = min(dac(p, l, mid), dac(p, mid + 1, r));
     inplace_merge(p + l, p + mid + 1, p + r + 1, cmpY);
-    static point_t tmp[maxn]; int cnt = 0;
+    static point_t tmp[maxN]; int cnt = 0;
     for (int i = l; i <= r; ++i) {
       if ((p[i].x - p[mid].x) * (p[i].x - p[mid].x) <= d) tmp[++cnt] = p[i];
     }

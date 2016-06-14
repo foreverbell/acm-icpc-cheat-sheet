@@ -1,7 +1,7 @@
 // Steiner's Problem: ts[m], list of vertices to be united, indexed from 0.
 int steiner(int *ts, int m) { // O(3^m*n+2^m*n^2+n^3)
   floyd();
-  memset(dp, 0, sizeof(dp));
+  mset0(dp);
   for (int i = 0; i < m; ++i) {
     for (int j = 1; j <= n; ++j) {
       dp[1 << i][j] = g[ts[i]][j];

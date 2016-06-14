@@ -1,6 +1,6 @@
 /* O(n^2logn), remove coincided circles first. */
-point_t center[maxn];
-double radius[maxn], cntarea[maxn];
+point_t center[maxN];
+double radius[maxN], cntarea[maxN];
 
 pair<double, double> isCC(point_t c1, point_t c2, double r1, double r2) {
   double d = dist(c1, c2);

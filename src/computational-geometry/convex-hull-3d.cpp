@@ -1,9 +1,9 @@
-int n, bf[maxn][maxn], fcnt;
-point3_t pt[maxn];
+int n, bf[maxN][maxN], fcnt;
+point3_t pt[maxN];
 struct face_t {
   int a, b, c;
   bool vis;
-} fc[maxn << 5];
+} fc[maxN << 5];
 
 bool remove(int p, int b, int a) {
   int f = bf[b][a];
@@ -38,7 +38,7 @@ void hull3d() {
   for (int i = 4; i <= n; ++i) {
     if (dblcmp(fabs(volume(pt[1], pt[2], pt[3], pt[i]))) > 0) swap(pt[i], pt[4]);
   }
-  zm(fc), fcnt = 0, zm(bf);
+  mset0(fc); fcnt = 0; mset0(bf);
   for (int i = 1; i <= 4; ++i) {
     face_t f;
     f.a = i + 1, f.b = i + 2, f.c = i + 3;

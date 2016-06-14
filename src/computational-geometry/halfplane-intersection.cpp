@@ -2,7 +2,7 @@
 // i.e., left side of vector v1->v2 is the valid half plane
 const double maxd = 1e5;
 int n, cnt;
-point_t p[maxn];
+point_t p[maxN];
 
 void init() { // order reversed if right side
   cnt = 4;
@@ -14,7 +14,7 @@ void init() { // order reversed if right side
 
 void cut(point_t p1, point_t p2) {
   int tcnt = 0;
-  static point_t tp[maxn];
+  static point_t tp[maxN];
   p[cnt + 1] = p[1];
   for (int i = 1; i <= cnt; ++i) {
     double v1 = cross(p2 - p1, p[i] - p1);

@@ -14,7 +14,7 @@ struct hp_t {
     if (dblcmp(a - r.a) == 0) return dblcmp(cross(r.p2 - r.p1, p2 - r.p1)) >= 0;
     else return a < r.a;
   }
-} hp[maxn];
+} hp[maxN];
 
 void addhp(point_t p1, point_t p2) {
   hp[++cnt] = hp_t(p1, p2);

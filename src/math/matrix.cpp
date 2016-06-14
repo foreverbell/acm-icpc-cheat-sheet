@@ -2,7 +2,7 @@ template<typename T, int N>
 struct matrix_t {
   T x[N + 1][N + 1];
   matrix_t(T v) {
-    memset(x, 0, sizeof(x));
+    mset0(x);
     for (int i = 1; i <= N; ++i) x[i][i] = v;
   }
   matrix_t operator*(const matrix_t &r) {
