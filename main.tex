@@ -109,31 +109,31 @@
 \noindent \\
 $h_n=a_1h_{n-1}+a_2h_{n-2}+a_3h_{n-3}+ \ldots + a_kh_{n-k}$, Construct matrix of $k*k$:
 \begin{gather*}
-\mathbf{M} =
-\begin{bmatrix}
-a_1 & a_2 & a_3 & \cdots & a_{k-2} & a_{k-1} & a_k \\
-1 & 0 & 0 & \cdots & 0 & 0 & 0 \\
-0 & 1 & 0 & \cdots & 0 & 0 & 0 \\
-0 & 0 & 1 & \cdots & 0 & 0 & 0 \\
-\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
-0 & 0 & 0 & \cdots & 1 & 0 & 0 \\
-0 & 0 & 0 & \cdots & 0 & 1 & 0 \\
-\end{bmatrix}
+  \mathbf{M} =
+  \begin{bmatrix}
+    a_1 & a_2 & a_3 & \cdots & a_{k-2} & a_{k-1} & a_k \\
+    1 & 0 & 0 & \cdots & 0 & 0 & 0 \\
+    0 & 1 & 0 & \cdots & 0 & 0 & 0 \\
+    0 & 0 & 1 & \cdots & 0 & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & 1 & 0 & 0 \\
+    0 & 0 & 0 & \cdots & 0 & 1 & 0 \\
+  \end{bmatrix}
 \end{gather*}
 Then the characteristic polynomial of $\mathbf{M}$ is
 \begin{gather*}
-f(\lambda)=|\lambda \mathbf{E} - \mathbf{M}| =
-\begin{bmatrix}
-\lambda - a_1 & -a_2 & -a_3 & \cdots & -a_{k-2} & -a_{k-1} & -a_k \\
--1 & \lambda & 0 & \cdots & 0 & 0 & 0 \\
-0 & -1 & \lambda & \cdots & 0 & 0 & 0 \\
-0 & 0 & -1 & \cdots & 0 & 0 & 0 \\
-\vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
-0 & 0 & 0 & \cdots & -1 & \lambda & 0 \\
-0 & 0 & 0 & \cdots & 0 & -1 & \lambda \\
-\end{bmatrix}
-\\
-=\lambda ^k - a_1 \lambda ^ {k-1} - a_2 \lambda ^ {k-2} - \ldots - a_k.
+  f(\lambda)=|\lambda \mathbf{E} - \mathbf{M}| =
+  \begin{bmatrix}
+    \lambda - a_1 & -a_2 & -a_3 & \cdots & -a_{k-2} & -a_{k-1} & -a_k \\
+    -1 & \lambda & 0 & \cdots & 0 & 0 & 0 \\
+    0 & -1 & \lambda & \cdots & 0 & 0 & 0 \\
+    0 & 0 & -1 & \cdots & 0 & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & -1 & \lambda & 0 \\
+    0 & 0 & 0 & \cdots & 0 & -1 & \lambda \\
+  \end{bmatrix}
+  \\
+  =\lambda ^k - a_1 \lambda ^ {k-1} - a_2 \lambda ^ {k-2} - \ldots - a_k.
 \end{gather*}
 Apply Hamilton-Cayley theorem, we have $f(\mathbf{M})=\mathbf{0}$. \\
 And, $\forall i$, $\mathbf{M} ^ i$ can be written as a linear combination of $\mathbf{E}$,$\mathbf{M}$,$\mathbf{M} ^2$,$\ldots$,$\mathbf{M} ^ {k-1}$.\\
@@ -144,12 +144,12 @@ So the matrix multiplication is reduced to polynomial multiplication, which can 
 Laplacian matrix $L=(\ell_{i,j})_{n*n}$ is defined as: $L=D-A$, that is, it is the difference of the degree matrix $D$ and the adjacency matrix $A$ of the graph. \\
 From the definition it follows that:
 \begin{displaymath}
-\ell_{i,j}=
-\left\{ \begin{array}{ll}
-deg(v_i) & \textrm{if } i=j \\
--1 & \textrm{if }i\ne j\textrm{ and }v_i\textrm{ is adjacent to }v_j \\
-0 & \textrm{otherwise}
-\end{array} \right.
+  \ell_{i,j}=
+  \left\{ \begin{array}{ll}
+    deg(v_i) & \textrm{if } i=j \\
+    -1 & \textrm{if }i\ne j\textrm{ and }v_i\textrm{ is adjacent to }v_j \\
+    0 & \textrm{otherwise}
+  \end{array} \right.
 \end{displaymath}
 Then the number of spanning trees of a graph on $n$ vertices is the determinant of any $n-1$ submatrix of $L$.
 \subsection{Gauss Elimiation}
@@ -177,7 +177,7 @@ Then the number of spanning trees of a graph on $n$ vertices is the determinant 
 Wiki: \\
 The Minkowski sum of two sets of position vectors $A$ and $B$ in Euclidean space is formed by adding each vector in $A$ to each vector in $B$, i.e. the set
 \begin{displaymath}
-A+B=\{ \vec{a} + \vec{b} \, | \, \vec{a} \in A, \vec{b} \in B \}.
+  A+B=\{ \vec{a} + \vec{b} \, | \, \vec{a} \in A, \vec{b} \in B \}.
 \end{displaymath}
 For all subsets $S_1$ and $S_2$ of a real vector-space, the convex hull of their Minkowski sum is the Minkowski sum of their convex hulls $\mathrm{Conv} (S_1 + S_2) = \mathrm{Conv} (S_1) + \mathrm{Conv} (S_2)$. \\
 Minkowski sums are used in motion planning of an object among obstacles. They are used for the computation of the configuration space, which is the set of all admissible positions of the object. In the simple model of translational motion of an object in the plane, where the position of an object may be uniquely specified by the position of a fixed point of this object, the configuration space are the Minkowski sum of the set of obstacles and the movable object placed at the origin and rotated $180$ degrees. \\
@@ -270,32 +270,32 @@ Thus we can construct a $729*324$ matrix, each $81$ columns representing each co
 \section{Tips}
 \subsection{Snippets \& Black Magic}
 \begin{itemize}
-\item Accelerated C++ stream IO
-\begin{lstlisting}[frame=none]
+  \item Accelerated C++ stream IO
+    \begin{lstlisting}[frame=none]
 #include <iomanip>
 ios_base::sync_with_stdio(false);
-\end{lstlisting}
-\item Enumerate all non-empty subsets
-\begin{lstlisting}[frame=none]
+    \end{lstlisting}
+  \item Enumerate all non-empty subsets
+    \begin{lstlisting}[frame=none]
 for (int sub = mask; sub > 0; sub = (sub - 1) & mask)
-\end{lstlisting}
-\item Enumerate $\mathrm{C}_{n}^{k}$
-\begin{lstlisting}[frame=none]
+    \end{lstlisting}
+  \item Enumerate $\mathrm{C}_{n}^{k}$
+    \begin{lstlisting}[frame=none]
 for (int comb = (1 << k) - 1; comb < 1 << n; ) {
-	// ...
-	int x = comb & -comb, y = comb + x;
-	comb = ((comb & ~y) / x >> 1) | y;
+  // ...
+  int x = comb & -comb, y = comb + x;
+  comb = ((comb & ~y) / x >> 1) | y;
 }
-\end{lstlisting}
-\item Convert YY/MM/DD to date
-\begin{lstlisting}[frame=none]
+    \end{lstlisting}
+  \item Convert YY/MM/DD to date
+    \begin{lstlisting}[frame=none]
 int days(int y, int m, int d) {
-	if (m < 3) y--, m += 12;
-	return 365 * y + y / 4 - y / 100 + y / 400 + (153 * m + 2) / 5 + d;
+  if (m < 3) y--, m += 12;
+  return 365 * y + y / 4 - y / 100 + y / 400 + (153 * m + 2) / 5 + d;
 }
-\end{lstlisting}
-\item Calculate $\lfloor f(n/d) \rfloor$, $d=1, 2, \ldots, n$.
-\begin{lstlisting}[frame=none]
+    \end{lstlisting}
+  \item Calculate $\lfloor f(n/d) \rfloor$, $d=1, 2, \ldots, n$.
+    \begin{lstlisting}[frame=none]
 void iterate(int n) { // calc sum f(n/d), d<-[1..n]
   int root = sqrt(double(n)), to = n;
   for (int d = 1; d <= root; ++d) {
@@ -307,9 +307,11 @@ void iterate(int n) { // calc sum f(n/d), d<-[1..n]
     // accumlate single f(n / d)
   }
 }
-\end{lstlisting}
-\item pb-ds
-\lstinputlisting[frame=none]{src/pb-ds.cpp}
+    \end{lstlisting}
+  \item pb-ds
+    \lstinputlisting[frame=none]{src/pb-ds.cpp}
+  \item mulmod
+    \lstinputlisting[frame=none]{src/mulmod.cpp}
 \end{itemize}
 \subsection{Formulas}
 \subsubsection{Geometry}
@@ -319,37 +321,37 @@ For convex polyhedron: $V-E+F=2$. \\
 For planar graph: $|F|=|E|-|V|+n+1$, $n$ denotes the number of connected components.
 \paragraph{$\blacksquare$ Pick's Theorem}
 \begin{eqnarray*}
-S=I+\frac{B}{2}-1
+  S=I+\frac{B}{2}-1
 \end{eqnarray*}
 $S$ is the area of lattice polygon, $I$ is the number of lattice interior points, and $B$ is the number of lattice boundary points.
 \paragraph{$\blacksquare$ Heron's Formula}
 \begin{eqnarray*}
-&& S=\sqrt{p(p-a)(p-b)(p-c)} \\
-&& p=\frac{a+b+c}{2}
+  && S=\sqrt{p(p-a)(p-b)(p-c)} \\
+  && p=\frac{a+b+c}{2}
 \end{eqnarray*}
 \paragraph{$\blacksquare$ Volumes}
 \noindent
 \begin{itemize}
-\item Pyramid $V=\frac{1}{3}Sh$.
-\item Sphere $V=\frac{4}{3}\pi R^3$.
-\item Frustum $V=\frac{1}{3}h(S_1+\sqrt {S_1S_2}+S_2)$.
-\item Ellipsoid $V=\frac{4}{3} \pi abc$.
-\item Tetrahedron \\
-For tetrahedron $O-ABC$, let $a=AB,b=BC,c=CA,d=OC,e=OA,f=OB$, ${(12V)}^2=a^2d^2(b^2+c^2+e^2+f^2-a^2-d^2)+b^2e^2(c^2+a^2+f^2+d^2-b^2-e^2)+c^2f^2(a^2+b^2+d^2+e^2-c^2-f^2)-a^2b^2c^2-a^2e^2f^2-d^2b^2f^2-d^2e^2c^2$.
+  \item Pyramid $V=\frac{1}{3}Sh$.
+  \item Sphere $V=\frac{4}{3}\pi R^3$.
+  \item Frustum $V=\frac{1}{3}h(S_1+\sqrt {S_1S_2}+S_2)$.
+  \item Ellipsoid $V=\frac{4}{3} \pi abc$.
+  \item Tetrahedron \\
+    For tetrahedron $O-ABC$, let $a=AB,b=BC,c=CA,d=OC,e=OA,f=OB$, ${(12V)}^2=a^2d^2(b^2+c^2+e^2+f^2-a^2-d^2)+b^2e^2(c^2+a^2+f^2+d^2-b^2-e^2)+c^2f^2(a^2+b^2+d^2+e^2-c^2-f^2)-a^2b^2c^2-a^2e^2f^2-d^2b^2f^2-d^2e^2c^2$.
 \end{itemize}
 \paragraph{$\blacksquare$ Radius of Inscribedcircle \& Circumcircle}
 \begin{eqnarray*}
-&& r=\frac{2S}{a+b+c},\, R=\frac{abc}{4S}
+  && r=\frac{2S}{a+b+c},\, R=\frac{abc}{4S}
 \end{eqnarray*}
 \paragraph{$\blacksquare$ Hypersphere}
 \begin{eqnarray*}
-&& V_2=\pi R^2,\, S_2=2\pi R \\
-&& V_3=\frac{4}{3}\pi R^3,\, S_3=4\pi R^2 \\
-&& V_4=\frac{1}{2}\pi ^2 R^4,\, S_4=2\pi ^2 R^3 \\
-&& V_5=\frac{8}{15}\pi ^2 R^5,\, S_5=\frac{8}{3}\pi ^2 R^4 \\
-&& V_6=\frac{1}{6}\pi ^3 R^6,\, S_6=\pi ^3 R^5 \\
-&& \mathrm{Generally}, V_n=\frac{2\pi}{n}V_{n-2},\, S_{n-1}=\frac{2\pi}{n-2}S_{n-3} \\
-&& \mathrm{Where}, S_0=2,\, V_1=2,\, S_1=2\pi ,\, V_2=\pi
+  && V_2=\pi R^2,\, S_2=2\pi R \\
+  && V_3=\frac{4}{3}\pi R^3,\, S_3=4\pi R^2 \\
+  && V_4=\frac{1}{2}\pi ^2 R^4,\, S_4=2\pi ^2 R^3 \\
+  && V_5=\frac{8}{15}\pi ^2 R^5,\, S_5=\frac{8}{3}\pi ^2 R^4 \\
+  && V_6=\frac{1}{6}\pi ^3 R^6,\, S_6=\pi ^3 R^5 \\
+  && \mathrm{Generally}, V_n=\frac{2\pi}{n}V_{n-2},\, S_{n-1}=\frac{2\pi}{n-2}S_{n-3} \\
+  && \mathrm{Where}, S_0=2,\, V_1=2,\, S_1=2\pi ,\, V_2=\pi
 \end{eqnarray*}
 % \paragraph{$\blacksquare$ Affine Transformation}
 % \begin{gather*}
@@ -384,37 +386,37 @@ For tetrahedron $O-ABC$, let $a=AB,b=BC,c=CA,d=OC,e=OA,f=OB$, ${(12V)}^2=a^2d^2(
 % \end{eqnarray*}
 \paragraph{$\blacksquare$ Matrix of rotating $\theta$ about arbitrary axis A}
 \begin{gather*}
-\begin{bmatrix}
-c+(1-c)A_x^2 & (1-c)A_xA_y-sA_z & (1-c)A_xA_z+sA_y \\
-(1-c)A_xA_y+sA_z & c+(1-c)A_y^2 & (1-c)A_yA_z-sA_x \\
-(1-c)A_xA_z-sA_y & (1-c)A_yA_z+sA_x & c+(1-c)A_z^2
-\end{bmatrix}
+  \begin{bmatrix}
+    c+(1-c)A_x^2 & (1-c)A_xA_y-sA_z & (1-c)A_xA_z+sA_y \\
+    (1-c)A_xA_y+sA_z & c+(1-c)A_y^2 & (1-c)A_yA_z-sA_x \\
+    (1-c)A_xA_z-sA_y & (1-c)A_yA_z+sA_x & c+(1-c)A_z^2
+  \end{bmatrix}
 \end{gather*}
 \subsubsection{Math}
 \paragraph{$\blacksquare$ Sums}
 \begin{eqnarray*}
-&& 1+2+\ldots +n=\frac{n^2}{2}+\frac{n}{2} \\
-&& 1^2+2^2+\ldots +n^2=\frac{n^3}{3}+\frac{n^2}{2}+\frac{n}{6} \\
-&& 1^3+2^3+\ldots +n^3=\frac{n^4}{4}+\frac{n^3}{2}+\frac{n^2}{4} \\
-&& 1^4+2^4+\ldots +n^4=\frac{n^5}{5}+\frac{n^4}{2}+\frac{n^3}{3}-\frac{n}{30} \\
-&& 1^5+2^5+\ldots +n^5=\frac{n^6}{6}+\frac{n^5}{2}+\frac{5n^4}{12}-\frac{n^2}{12} \\
-&& 1^6+2^6+\ldots +n^6=\frac{n^7}{7}+\frac{n^6}{2}+\frac{n^5}{2}-\frac{n^3}{6}+\frac{n}{42} \\
-&& \mathrm{P}(k)=\frac{(n+1)^{k+1}-\sum_{i=0}^{k-1}\binom{k+1}{i}\mathrm{P}(i)}{k+1}, \mathrm{P}(0)=n\textbf{+1}
+  && 1+2+\ldots +n=\frac{n^2}{2}+\frac{n}{2} \\
+  && 1^2+2^2+\ldots +n^2=\frac{n^3}{3}+\frac{n^2}{2}+\frac{n}{6} \\
+  && 1^3+2^3+\ldots +n^3=\frac{n^4}{4}+\frac{n^3}{2}+\frac{n^2}{4} \\
+  && 1^4+2^4+\ldots +n^4=\frac{n^5}{5}+\frac{n^4}{2}+\frac{n^3}{3}-\frac{n}{30} \\
+  && 1^5+2^5+\ldots +n^5=\frac{n^6}{6}+\frac{n^5}{2}+\frac{5n^4}{12}-\frac{n^2}{12} \\
+  && 1^6+2^6+\ldots +n^6=\frac{n^7}{7}+\frac{n^6}{2}+\frac{n^5}{2}-\frac{n^3}{6}+\frac{n}{42} \\
+  && \mathrm{P}(k)=\frac{(n+1)^{k+1}-\sum_{i=0}^{k-1}\binom{k+1}{i}\mathrm{P}(i)}{k+1}, \mathrm{P}(0)=n\textbf{+1}
 \end{eqnarray*}
 \begin{eqnarray*}
-&& \sum_{k=1}^{n}k(k+1)=\frac{n(n+1)(n+2)}{3} \\
-&& \sum_{k=1}^{n}k(k+1)(k+2)=\frac{n(n+1)(n+2)(n+3)}{4} \\
-&& \sum_{k=1}^{n}k(k+1)(k+2)(k+3)=\frac{n(n+1)(n+2)(n+3)(n+4)}{5}
+  && \sum_{k=1}^{n}k(k+1)=\frac{n(n+1)(n+2)}{3} \\
+  && \sum_{k=1}^{n}k(k+1)(k+2)=\frac{n(n+1)(n+2)(n+3)}{4} \\
+  && \sum_{k=1}^{n}k(k+1)(k+2)(k+3)=\frac{n(n+1)(n+2)(n+3)(n+4)}{5}
 \end{eqnarray*}
 \paragraph{$\blacksquare$ Power Reduction}
 $a^b\%p=a^{(b\% \varphi (p))+\varphi (p)}\% p \, (b \ge \varphi (p))$
 \paragraph{$\blacksquare$ Burnside's Lemma}
 \noindent
 \begin{displaymath}
-|X/G|=\frac{1}{|G|}\sum_{g\in G}|X^g|
+  |X/G|=\frac{1}{|G|}\sum_{g\in G}|X^g|
 \end{displaymath}
 \begin{displaymath}
-\mathrm{Polya}: X^g=t^{c(g)}
+  \mathrm{Polya}: X^g=t^{c(g)}
 \end{displaymath}
 Let $X^g$ denote the set of elements in $X$ fixed by $g$. \\
 $c(g)$ is the number of cycles of the group element $g$ as a permutation of $X$.
@@ -437,7 +439,7 @@ $c(g)$ is the number of cycles of the group element $g$ as a permutation of $X$.
 \noindent \\
 For non-negative integers $m$ and $n$ and a prime $p$, holds the equation \\
 \begin{displaymath}
-\binom{m}{n} \equiv \prod_{i=0}^k \binom{m_i}{n_i} \mod p
+  \binom{m}{n} \equiv \prod_{i=0}^k \binom{m_i}{n_i} \mod p
 \end{displaymath}
 where $m=m_kp^k+m_{k-1}p^{k-1}+\ldots +m_1p+m_0$, and $n=n_kp^k+n_{k-1}p^{k-1}+\ldots +n_1p+n_0$, are the base $p$ expansions of $m$ and $n$ respectively.
 \paragraph{$\blacksquare$ Wilson's Theorem}
@@ -452,21 +454,21 @@ $f'(x')\equiv 0 \mod p$ \textbf{and} $f(x')\equiv 0 \mod p^a \Rightarrow x=x'+dp
 $f'(x')\not\equiv 0 \mod p \Rightarrow x=x'-\frac{f(x')}{f'(x')}$
 \paragraph{$\blacksquare$ Binomial Coefficients}
 \begin{eqnarray*}
-&& \mathrm{C}_{r}^{k}=\frac{r}{k}\mathrm{C}_{r-1}^{k-1}\qquad \qquad \: \: \: \mathrm{C}_{r}^{k}=\mathrm{C}_{r-1}^{k}+\mathrm{C}_{r-1}^{k-1} \\
-&& \mathrm{C}_{r}^{m}\mathrm{C}_{m}^{k}=\mathrm{C}_{r}^{k}\mathrm{C}_{r-k}^{m-k}\qquad \sum_{k\le n}\mathrm{C}_{r+k}^{k}=\mathrm{C}_{r+n+1}^{n} \\
-&& \sum_{0 \le k \le n}\mathrm{C}_{k}^{m}=\mathrm{C}_{n+1}^{m+1}\qquad \sum_{k}\mathrm{C}_{r}^{k}\mathrm{C}_{s}^{n-k}=\mathrm{C}_{r+s}^{n}
+  && \mathrm{C}_{r}^{k}=\frac{r}{k}\mathrm{C}_{r-1}^{k-1}\qquad \qquad \: \: \: \mathrm{C}_{r}^{k}=\mathrm{C}_{r-1}^{k}+\mathrm{C}_{r-1}^{k-1} \\
+  && \mathrm{C}_{r}^{m}\mathrm{C}_{m}^{k}=\mathrm{C}_{r}^{k}\mathrm{C}_{r-k}^{m-k}\qquad \sum_{k\le n}\mathrm{C}_{r+k}^{k}=\mathrm{C}_{r+n+1}^{n} \\
+  && \sum_{0 \le k \le n}\mathrm{C}_{k}^{m}=\mathrm{C}_{n+1}^{m+1}\qquad \sum_{k}\mathrm{C}_{r}^{k}\mathrm{C}_{s}^{n-k}=\mathrm{C}_{r+s}^{n}
 \end{eqnarray*}
 The number of non-negative solutions to equation $x_1 + x_2 + x_3 + \ldots + x_k = n$ is $\binom{n+k-1}{k-1}$.
 \paragraph{$\blacksquare$ Probability Distribution}
 \begin{itemize}
-\item Binomial distribution:
-$\mathrm{Pr}[\mathit{X}=k]=\binom{n}{k}p^kq^{n-k}, p+q=1, \mathrm{E}[\mathit{X}]=np.$
-\item Poisson distribution:
-$\mathrm{Pr}[\mathit{X}=k]=\frac{e^{-\lambda }\lambda ^{k}}{k!}, \mathrm{E}[\mathit{X}]=\lambda .$
-\item Gaussian distribution:
-$p(x)=\frac{1}{\sigma \sqrt{2\pi }}e^{-(x-\mu)^2/2\sigma ^2}, \mathrm{E}[\mathit{X}]=\mu .$
-\item Geometric distribution:
-$\mathrm{Pr}[\mathit{X}=k]=pq^{k-1}, p+q=1, \mathrm{E}[\mathit{X}]=\frac{1}{p}.$
+  \item Binomial distribution:
+    $\mathrm{Pr}[\mathit{X}=k]=\binom{n}{k}p^kq^{n-k}, p+q=1, \mathrm{E}[\mathit{X}]=np.$
+  \item Poisson distribution:
+    $\mathrm{Pr}[\mathit{X}=k]=\frac{e^{-\lambda }\lambda ^{k}}{k!}, \mathrm{E}[\mathit{X}]=\lambda .$
+  \item Gaussian distribution:
+    $p(x)=\frac{1}{\sigma \sqrt{2\pi }}e^{-(x-\mu)^2/2\sigma ^2}, \mathrm{E}[\mathit{X}]=\mu .$
+  \item Geometric distribution:
+    $\mathrm{Pr}[\mathit{X}=k]=pq^{k-1}, p+q=1, \mathrm{E}[\mathit{X}]=\frac{1}{p}.$
 \end{itemize}
 \paragraph{$\blacksquare$ Catalan Number}
 \noindent \\
