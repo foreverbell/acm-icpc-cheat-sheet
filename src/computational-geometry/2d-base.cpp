@@ -1,4 +1,31 @@
-// implementation of (dblcmp,dist,cross,dot) is trivial
+struct point_t {
+  double x, y;
+  point_t() { }
+  point_t(double tx, double ty) : x(tx), y(ty) { }
+  point_t operator-(const point_t &r) const { return point_t(x - r.x, y - r.y); }
+  point_t operator+(const point_t &r) const { return point_t(x + r.x, y + r.y); }
+  point_t operator*(double r) const { return point_t(x * r, y * r); }
+  point_t operator/(double r) const { return point_t(x / r, y / r); }
+  point_t rot90() const { return point_t(-y, x); }
+  double l() const { return sqrt(x * x + y * y); }
+  void read() { scanf("%lf%lf", &x, &y); }
+};
+
+int dblcmp(double x) {
+  return (x < -eps ? -1 : x > eps);
+}
+
+double dist(point_t p1, point_t p2) {
+  return (p2 - p1).l();
+}
+
+double cross(point_t p1, point_t p2) {
+  return p1.x * p2.y - p2.x * p1.y;
+}
+
+double dot(point_t p1, point_t p2) {
+  return p1.x * p2.x + p1.y * p2.y;
+}
 
 // count-clock wise is positive direction
 double angle(point_t p1, point_t p2) {
