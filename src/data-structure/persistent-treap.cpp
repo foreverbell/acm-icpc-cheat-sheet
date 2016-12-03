@@ -21,7 +21,7 @@ void init() {
   nil->size = 0, nil->key = ~0U >> 1;
 }
 
-struct PresidentTreap {
+struct PersistentTreap {
   node_t *root;
 
   node_t *splitL(node_t *a, int size) {
