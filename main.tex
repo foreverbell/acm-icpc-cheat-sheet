@@ -313,26 +313,7 @@ void iterate(int n) { // calc sum f(n/d), d<-[1..n]
   \item mulmod
     \lstinputlisting[frame=none]{src/mulmod.cpp}
   \item Modify stack limit
-    \begin{lstlisting}[frame=none]
-#include <ucontext.h>
-
-void _main() {
-  // main() goes here.
-}
-
-char stack[STACK_SIZE];
-int main() {
-  ucontext_t ctx;
-  getcontext(&ctx);
-  ctx.uc_link = nullptr;
-  ctx.uc_stack.ss_sp = stack;
-  ctx.uc_stack.ss_size = sizeof(stack);
-  ctx.uc_stack.ss_flags = 0;
-  makecontext(&ctx, _main, 0);
-  setcontext(&ctx);
-  return 0;
-}
-    \end{lstlisting}
+    \lstinputlisting[frame=none]{src/stack-limit.cpp}
 \end{itemize}
 \subsection{Formulas}
 \subsubsection{Geometry}
@@ -441,21 +422,6 @@ $a^b\%p=a^{(b\% \varphi (p))+\varphi (p)}\% p \, (b \ge \varphi (p))$
 \end{displaymath}
 Let $X^g$ denote the set of elements in $X$ fixed by $g$. \\
 $c(g)$ is the number of cycles of the group element $g$ as a permutation of $X$.
-% \paragraph{$\blacksquare$ Lagrange Multiplier}
-% \noindent \\
-% A strategy for finding the local extrema of a function subject to equality constraints. \\
-% If we want to maximize $f(x_1,x_2,\ldots ,x_n)$, which subject to $\varphi(x_1,x_2,\ldots ,x_n)=0$. We introduce a new variable $\lambda$ called a Lagrange multiplier, and study the Lagrange function $L(x_1,x_2,\ldots ,x_n)=f(x_1,x_2,\ldots ,x_n)+\lambda \varphi(x_1,x_2,\ldots ,x_n)$.\\
-% Then we calculate $x_i$'s first partial derivatives of $L(x_1,x_2,\ldots ,x_n)$, and add the simultaneous equation $\varphi(x_1,x_2,\ldots ,x_n)=0$. We get these equations \\
-% \begin{displaymath}
-% \left\{ \begin{array}{ll}
-% \ldots \\
-% f_{x_i}(x_1,x_2,\ldots ,x_n)+\lambda \varphi _{x_i}(x_1,x_2,\ldots ,x_n)=0 \\
-% \ldots \\
-% \varphi (x_1,x_2,\ldots ,x_n)=0
-% \end{array} \right.
-% \end{displaymath}
-% Solve it to get all \textbf{probable} extrema points. \\
-% Also it can extend to multiple constraints. Just set multiple Lagrange multipliers $\lambda$, $\psi$, etc.
 \paragraph{$\blacksquare$ Lucas's Theorem}
 \noindent \\
 For non-negative integers $m$ and $n$ and a prime $p$, holds the equation \\
